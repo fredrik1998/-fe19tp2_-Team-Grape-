@@ -56,7 +56,7 @@ const Form = styled.h5`
 
 const Button = styled.button`
 width: 100%;
-height: 50px;
+height: 25px;
 background: #FFF;
 border: none;
 outline: none;
@@ -66,7 +66,7 @@ font-weight: 700;
 transition: .3s linear;`;
 
 const Textbox = styled.h5`width: 100%;
-height: 50px;
+height: 25px;
 border: none;
 background: #2b2b2b;
 padding: 0 15px;
@@ -76,17 +76,16 @@ color: #f4f4f4;`;
 
 
 
+
 const SignInPage = () => (
   <Form>
   <div> 
-   
   <Wrapper>
     <Title>
       Sign In
     </Title>
   </Wrapper>
-
-     <Avatar >
+          <Avatar >
           <LockOutlinedIcon />
         </Avatar>
     <SignInForm />
@@ -128,32 +127,27 @@ class SignInFormBase extends Component {
     const isInvalid = password === '' || email === '';
     return (
       <form onSubmit={this.onSubmit}>
-        <Textbox>
-        <input 
+         <input 
           name="email"
           value={email} 
           onChange={this.onChange}
           type="text"
           placeholder="Email Address"
         />
-        <Textbox><input
+       <input
           name="password"
           value={password}
           onChange={this.onChange}
           type="password"
           placeholder="Password"
-        /></Textbox>
+        />
         <button disabled={isInvalid} type="submit">
         <Button>
           Sign In
           </Button>
         </button>
         {error && <p>{error.message}</p>}
-        </Textbox>
       </form>
-      
-      
-     
     );
   }
 }
