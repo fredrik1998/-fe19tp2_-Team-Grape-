@@ -7,6 +7,9 @@ import { withFirebase } from '../Firebase/context';
 import * as ROUTES from '../../constants/routes';
 
 import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -54,26 +57,19 @@ const Form = styled.h5`
   color: #f4f4f4;
 `;
 
-const Button = styled.button`
-width: 100%;
-height: 25px;
-background: #FFF;
-border: none;
-outline: none;
-cursor: pointer;
-text-transform: uppercase;
-font-weight: 700;
-transition: .3s linear;`;
+const StyledButton = styled(Button)`
+background-color: #6772e5;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  padding: 7px 14px;
+  &:hover {
+    background-color: #5469d4;
+  }
+`;
 
-const Textbox = styled.h5`width: 100%;
-height: 25px;
-border: none;
-background: #2b2b2b;
-padding: 0 15px;
-font-size: 16px;
-outline: none;
-color: #f4f4f4;`;
 
+const StyledInput = styled(Input)`
+label="Outlined" variant="outlined" color: #fff;  `
 
 
 
@@ -127,30 +123,39 @@ class SignInFormBase extends Component {
     const isInvalid = password === '' || email === '';
     return (
       <form onSubmit={this.onSubmit}>
-         <input 
+       
+        <StyledInput
           name="email"
           value={email} 
           onChange={this.onChange}
           type="text"
           placeholder="Email Address"
-        />
-       <input
+         />
+        
+       <StyledInput
           name="password"
           value={password}
           onChange={this.onChange}
           type="password"
           placeholder="Password"
         />
+        
+      
+      
         <button disabled={isInvalid} type="submit">
-        <Button>
+        <StyledButton>
           Sign In
-          </Button>
+          </StyledButton>
         </button>
+   
+    
         {error && <p>{error.message}</p>}
       </form>
+    
     );
   }
 }
+
 
 
 const SignInForm = compose(
@@ -159,3 +164,4 @@ const SignInForm = compose(
 )(SignInFormBase);
 export default SignInPage;
 export { SignInForm };
+

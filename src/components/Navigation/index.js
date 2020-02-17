@@ -24,7 +24,7 @@ const Navigation = () => (
   <Link to={ROUTES.ACCOUNT}>Account</Link>
   </li>
   <li>
-  <SignOutButton />
+  <SignOutButton/>
   </li>
   </ul>
   );
@@ -36,6 +36,9 @@ const Navigation = () => (
     <li>
     <Link to={ROUTES.SIGN_IN}>Sign In</Link>
     </li>
+    <li>
+    <Link to={ROUTES.LANDING}>Sign Out</Link>
+  </li>
     </ul>
     );
     export default Navigation;
