@@ -5,18 +5,102 @@ import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase/context';
 import * as ROUTES from '../../constants/routes';
+
+import Avatar from '@material-ui/core/Avatar';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import styled from 'styled-components';
+
+
+const Title = styled.h1`
+  font-size: 3em;
+  text-align: center;
+  color: #FFF;
+`;
+
+const Wrapper = styled.section`
+  padding: 4em;
+  width: 100%;
+  height: 50px;
+  border: none;
+  background: #2b2b2b;
+  font-size: 16px;
+  outline: none;
+  color: #f4f4f4;
+  display: flex;
+  align-items: center;
+  
+`;
+
+const Form = styled.h5`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max;
+  height: max;
+  border: none;
+  background: #2b2b2b;
+  padding: 0 15px;
+  font-size: 16px;
+  outline: none;
+  color: #f4f4f4;
+`;
+
+const Button = styled.button`
+width: 100%;
+height: 50px;
+background: #FFF;
+border: none;
+outline: none;
+cursor: pointer;
+text-transform: uppercase;
+font-weight: 700;
+transition: .3s linear;`;
+
+const Textbox = styled.h5`width: 100%;
+height: 50px;
+border: none;
+background: #2b2b2b;
+padding: 0 15px;
+font-size: 16px;
+outline: none;
+color: #f4f4f4;`;
+
+
+
 const SignInPage = () => (
-  <div>
-    <h1>SignIn</h1>
+  <Form>
+  <div> 
+   
+  <Wrapper>
+    <Title>
+      Sign In
+    </Title>
+  </Wrapper>
+
+     <Avatar >
+          <LockOutlinedIcon />
+        </Avatar>
     <SignInForm />
     <PasswordForgetLink />
     <SignUpLink />
   </div>
+  </Form>
+  
 );
 const INITIAL_STATE = {
-  email: '',
+  email: '', 
   password: '',
   error: null,
+  
 };
 class SignInFormBase extends Component {
   constructor(props) {
@@ -44,28 +128,37 @@ class SignInFormBase extends Component {
     const isInvalid = password === '' || email === '';
     return (
       <form onSubmit={this.onSubmit}>
-        <input
+        <Textbox>
+        <input 
           name="email"
-          value={email}
+          value={email} 
           onChange={this.onChange}
           type="text"
           placeholder="Email Address"
         />
-        <input
+        <Textbox><input
           name="password"
           value={password}
           onChange={this.onChange}
           type="password"
           placeholder="Password"
-        />
+        /></Textbox>
         <button disabled={isInvalid} type="submit">
+        <Button>
           Sign In
+          </Button>
         </button>
         {error && <p>{error.message}</p>}
+        </Textbox>
       </form>
+      
+      
+     
     );
   }
 }
+
+
 const SignInForm = compose(
   withRouter,
   withFirebase,
