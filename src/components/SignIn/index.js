@@ -20,6 +20,10 @@ import styled, { withTheme } from 'styled-components';
 import { Input } from '@material-ui/core';
 import color from '@material-ui/core/colors/amber';
 
+const StyledLockOutlinedIcon = styled(LockOutlinedIcon)`
+,`
+
+
 const Title = styled.h1`
   font-size: 3em;
   text-align: center;
@@ -83,9 +87,9 @@ const SignInPage = () => (
       Sign In
     </Title>
   </Wrapper>
-          <Avatar >
-          <LockOutlinedIcon />
-        </Avatar>
+         
+          <StyledLockOutlinedIcon/>
+        
     <SignInForm />
     <PasswordForgetLink />
     <SignUpLink />
