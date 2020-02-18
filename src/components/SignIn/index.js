@@ -7,21 +7,18 @@ import { withFirebase } from '../Firebase/context';
 import * as ROUTES from '../../constants/routes';
 
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Input from '@material-ui/core/Input';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import styled from 'styled-components';
-
+import styled, { withTheme } from 'styled-components';
+import { Input } from '@material-ui/core';
+import color from '@material-ui/core/colors/amber';
 
 const Title = styled.h1`
   font-size: 3em;
@@ -30,49 +27,54 @@ const Title = styled.h1`
 `;
 
 const Wrapper = styled.section`
-  padding: 4em;
-  width: 100%;
-  height: 50px;
-  border: none;
-  background: #2b2b2b;
-  font-size: 16px;
-  outline: none;
-  color: #f4f4f4;
-  display: flex;
-  align-items: center;
+background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+border: 0,
+borderRadius: 3,
+boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+color: 'white',
+height: 48,
+padding: '0 30px',
   
 `;
 
 const Form = styled.h5`
+  size: 10em;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: max;
   height: max;
   border: none;
-  background: #2b2b2b;
+  background: #180F0F;
   padding: 0 15px;
   font-size: 16px;
   outline: none;
-  color: #f4f4f4;
+  color: white;
 `;
 
-const StyledButton = styled(Button)`
-background-color: #6772e5;
-  color: #fff;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  padding: 7px 14px;
-  &:hover {
-    background-color: #5469d4;
-  }
-`;
-
+const StyledButton = styled(Button)({
+background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+  border: 0,
+  borderRadius: 3,
+  boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+  color: 'white',
+  height: 48,
+  padding: '0 30px',
+});
 
 const StyledInput = styled(Input)`
-label="Outlined" variant="outlined" color: #fff;  `
-
-
-
+  label="Filled";
+   variant="filled"; 
+   background-color:#26262b;
+  width: 100%;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 8px 0;
+  margin: 8px 0;
+  
+   `
+  
+  
 const SignInPage = () => (
   <Form>
   <div> 
@@ -123,39 +125,32 @@ class SignInFormBase extends Component {
     const isInvalid = password === '' || email === '';
     return (
       <form onSubmit={this.onSubmit}>
-       
         <StyledInput
           name="email"
           value={email} 
           onChange={this.onChange}
           type="text"
           placeholder="Email Address"
-         />
+        />
         
-       <StyledInput
+       <StyledInput 
           name="password"
           value={password}
           onChange={this.onChange}
           type="password"
           placeholder="Password"
         />
-        
-      
-      
-        <button disabled={isInvalid} type="submit">
-        <StyledButton>
+       
+        <StyledButton disabled={isInvalid} type="submit">
+       
           Sign In
-          </StyledButton>
-        </button>
-   
-    
+       
+        </StyledButton>
         {error && <p>{error.message}</p>}
       </form>
-    
     );
   }
 }
-
 
 
 const SignInForm = compose(
@@ -164,4 +159,3 @@ const SignInForm = compose(
 )(SignInFormBase);
 export default SignInPage;
 export { SignInForm };
-
