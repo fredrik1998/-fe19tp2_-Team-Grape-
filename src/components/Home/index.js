@@ -1,47 +1,22 @@
 import React from 'react';
-import {Bar} from 'react-chartjs-2';
-
- 
-// function Home(props) {
-//   return (
-//     <div>
-//       <h1>Home</h1>
-//     </div>
-//   )
-// }
-
-const state = {
-  labels: ['January', 'February', 'March',
-           'April', 'May'],
-  datasets: [
-    {
-      label: 'Rainfall',
-      backgroundColor: 'rgba(75,192,192,1)',
-      borderColor: 'rgba(0,0,0,1)',
-      borderWidth: 2,
-      data: [65, 59, 80, 81, 56]
-    }
-  ]
-}
+import { Bar } from 'react-chartjs-2';
+import { findPrizePool, tournaments } from '../Data/tournaments';
+import { players, findPlayersByGameID } from '../Data';
+import LineDemo from '../Chartjs/linegraph';
 
 export default class Home extends React.Component {
+
+
+  componentDidMount() {
+    // console.log(findPlayersByGameID(5));
+    // console.log(findPlayersByGameID(3));
+    console.log(findPrizePool());
+  }
+
   render() {
     return (
       <div>
-        <Bar
-          data={state}
-          options={{
-            title:{
-              display:true,
-              text:'Average Rainfall per month',
-              fontSize:20
-            },
-            legend:{
-              display:true,
-              position:'right'
-            }
-          }}
-        />
+        {<LineDemo />}
       </div>
     );
   }
