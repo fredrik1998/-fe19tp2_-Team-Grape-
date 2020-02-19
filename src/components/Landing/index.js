@@ -1,4 +1,6 @@
 import React from 'react';
+import * as ROUTES from '../../constants/routes';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
@@ -57,11 +59,11 @@ export default function CenteredTabs() {
             }
           }}
         >
-          <Tab label="Login" />
+          <Tab label="Login" href={ROUTES.SIGN_IN}/>
           <Tab label="Home" />
           <Tab label="Teams" />
-          <Tab label="Games" />
-          <Tab label="Faq" />
+          <Tab label="Games"/>
+          <Tab label="Faq"/>
         </StyledTabs>
       </Paper>
       <RecipeReviewCard />

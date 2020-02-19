@@ -9,7 +9,11 @@ import BarDemo from '../Chartjs/Bar';
 import './styles.css';
 import Grid from '@material-ui/core/Grid';
 
-const StyledGrid = styled(Grid)
+const StyledGrid = styled(Grid)`
+display: flex;
+flex-direction: ;
+justify-content: space-evenly;
+align-items: center;`
 
 
 export default class Home extends React.Component {
@@ -23,14 +27,13 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      
+    
       <div>
-        {<LineDemo/>}
-       
+        {<LineDemo />}
         {<DoughnutDemo/>}
         {<BarDemo/>}
-        
       </div>
+   
     );
   }
 }
