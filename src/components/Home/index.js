@@ -1,8 +1,16 @@
 import React from 'react';
-import { Bar } from 'react-chartjs-2';
+import { Bar, Pie } from 'react-chartjs-2';
 import { findPrizePool, tournaments } from '../Data/tournaments';
-import { players, findPlayersByGameID } from '../Data';
+// import { players, findPlayersByGameID } from '../Data';
 import LineDemo from '../Chartjs/linegraph';
+import styled from 'styled-components'
+import DoughnutDemo from '../Chartjs/Doughnut';
+import BarDemo from '../Chartjs/Bar';
+import './styles.css';
+import Grid from '@material-ui/core/Grid';
+
+const StyledGrid = styled(Grid)
+
 
 export default class Home extends React.Component {
 
@@ -15,10 +23,17 @@ export default class Home extends React.Component {
 
   render() {
     return (
+      
       <div>
-        {<LineDemo />}
+        {<LineDemo/>}
+       
+        {<DoughnutDemo/>}
+        {<BarDemo/>}
+        
       </div>
     );
   }
 }
+
+
 

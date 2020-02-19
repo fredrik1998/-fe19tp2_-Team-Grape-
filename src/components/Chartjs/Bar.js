@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
-import { Line } from 'react-chartjs-2';
+import { Bar} from 'react-chartjs-2'
 import { findPrizePool } from '../Data/tournaments'
-
-
-
-
 
 const prizeData = findPrizePool();
 
-const data = {
-    labels: Object.keys(prizeData),
+const BarData = {  labels: Object.keys(prizeData),
     datasets: [
         {
             label: 'Prize Pools',
@@ -35,34 +30,19 @@ const data = {
     ]
 };
 
-
-
-
-export default class LineDemo extends Component {
+export default class BarDemo extends Component {
     render() {
         return (
             <div>
-                <h2>Line Example</h2>
-                <Line ref="chart" data={data} height={70} />
+                <h2>Bar Example</h2>
+                <Bar ref="chart" data={BarData} height={40} width={200} />
             </div>
         );
-    }
-    
-
+    } 
 
     componentDidMount() {
         const { datasets } = this.refs.chart.chartInstance.data
         console.log(datasets[0].data);
     }
 }
-
-   
-
-   
-
-
-       
-       
-      
-
-  
+    

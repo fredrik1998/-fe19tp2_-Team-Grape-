@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
-import { Line } from 'react-chartjs-2';
+import { Doughnut} from 'react-chartjs-2'
 import { findPrizePool } from '../Data/tournaments'
-
-
-
-
 
 const prizeData = findPrizePool();
 
-const data = {
-    labels: Object.keys(prizeData),
+const DoughnutData = {  labels: Object.keys(prizeData),
     datasets: [
         {
             label: 'Prize Pools',
@@ -34,35 +29,21 @@ const data = {
         }
     ]
 };
+    
+    
 
-
-
-
-export default class LineDemo extends Component {
+export default class DoughnutDemo extends Component {
     render() {
         return (
             <div>
-                <h2>Line Example</h2>
-                <Line ref="chart" data={data} height={70} />
+                <h2>Doughnut Example</h2>
+                <Doughnut ref="chart" data={DoughnutData} height={40}/>
             </div>
         );
-    }
-    
-
+    } 
 
     componentDidMount() {
         const { datasets } = this.refs.chart.chartInstance.data
         console.log(datasets[0].data);
     }
 }
-
-   
-
-   
-
-
-       
-       
-      
-
-  
