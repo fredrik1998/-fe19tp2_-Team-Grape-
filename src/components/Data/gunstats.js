@@ -1,7 +1,7 @@
 export const weaponinfo = {
 
     "data": {
-        "weapon": [{
+        "weapon": {
             "ak47": 37.46,
             "m4a1": 15.69,
             "awp": 13.15,
@@ -15,11 +15,21 @@ export const weaponinfo = {
             "famas": 2.43,
             "aug": 2.32,
             "sg55s": 2.21
-        }]
+        }
     }
 }
 
+/*
+const usersObject = snapshot.val();
+const usersList = Object.keys(usersObject).map(key => ({
+...usersObject[key],
+uid: key,
+}));*/
 
+export const weaponLabels = Object.keys(weaponinfo.data.weapon);
+export const weaponData = Object.values(weaponinfo.data.weapon);
+console.log(weaponLabels)
+console.log(weaponData)
 export const gunStats = () => {
     let arr = weaponinfo.data.weapon.map((weapon) => {
         let stats = weaponinfo.data.weapon.values;
