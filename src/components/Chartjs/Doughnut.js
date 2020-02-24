@@ -9,11 +9,7 @@ const prizeData = findPrizePool();
 const DoughnutData = {  labels: weaponLabels, 
     datasets: [
         {
-            labels: [
-                'Red',
-                'Yellow',
-                'Blue'
-            ],
+            labels: "weapons",
             fill: false,
             lineTension: 0.1,
             backgroundColor: 'rgba(75,192,192,0.4)',
