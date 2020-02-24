@@ -20,7 +20,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-
+import Grid from '@material-ui/core/Grid';
 
 const useTabs = makeStyles({
   root: {
@@ -65,6 +65,9 @@ export default function CenteredTabs() {
         </StyledTabs>
       </Paper>
       <RecipeReviewCard />
+      <CustomReviewCard avatar="F" title="FRASSE" description={`Frasse is a Swedish esports organization formed by Markus "pronax" Wallsten and
+          entrepreneur Tomas Oropesa Martin. In September 2019, The Final Tribe merged with
+          Godsent.[1]`} image="https://liquipedia.net/commons/images/thumb/a/a5/TeamGamerLegion.png/600px-TeamGamerLegion.png"/>
     </React.Fragment>
   );
 }
@@ -73,15 +76,24 @@ const useStyles = makeStyles(theme => ({
   root: {
     maxWidth: 250
   },
+  card: {
+    width: "100%",
+    backgroundColor: 'black',
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignContent: 'center',
+    padding: '30px',
+  },
   media: {
     height: 0,
     paddingTop: '56.25%' // 16:9
+    
   },
   typography: {
     color: 'white'
   },
   title: {
-    color: 'red',
+    color: 'red'
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -97,6 +109,77 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: red[500]
   }
 }));
+export function CustomReviewCard({ avatar, title, description, image }) {
+  // avatar: 'hej, title: 'hej
+  console.log(title);
+  const classes = useStyles();
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
+
+  return (
+    <Card className={classes.root} style={{ backgroundColor: '#271F1F' }}>
+      <CardHeader
+        avatar={
+          <Avatar aria-label="recipe" className={classes.avatar}>
+            {avatar}
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        }
+        title={title}
+        subheader="CSGO TEAM"
+      />
+      <CardMedia
+        component="img"
+        className={classes.media.MuiCardMedia}
+        height="200"
+        image={image}
+        title="GODSENT"
+      />
+      <CardContent>
+        <Typography variant="body2" color="grey[500]" lineHeight={1.8} fontSize={12} component="p">
+          {description}
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+        </IconButton>
+        <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton>
+        <IconButton
+          className={clsx(classes.expand, {
+            [classes.expandOpen]: expanded
+          })}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </IconButton>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph>Latest Games:</Typography>
+          <Typography paragraph>Matches</Typography>
+          <Typography paragraph>Matches</Typography>
+          <Typography paragraph>Matches</Typography>
+          <Typography>Matches</Typography>
+        </CardContent>
+      </Collapse>
+    
+
+    </Card>
+    
+  );
+}
 
 export function RecipeReviewCard() {
   const classes = useStyles();
@@ -130,8 +213,10 @@ export function RecipeReviewCard() {
         title="GODSENT"
       />
       <CardContent>
-        <Typography variant="body2" color='grey[500]' lineHeight={1.8} fontSize={12} component="p">
-        Godsent is a Swedish esports organization formed by Markus "pronax" Wallsten and entrepreneur Tomas Oropesa Martin. In September 2019, The Final Tribe merged with Godsent.[1]
+        <Typography variant="body2" color="grey[500]" lineHeight={1.8} fontSize={12} component="p">
+          Godsent is a Swedish esports organization formed by Markus "pronax" Wallsten and
+          entrepreneur Tomas Oropesa Martin. In September 2019, The Final Tribe merged with
+          Godsent.[1]
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -155,21 +240,12 @@ export function RecipeReviewCard() {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Latest Games:</Typography>
-          <Typography paragraph>
-            Matches
-          </Typography>
-          <Typography paragraph>
-            Matches
-          </Typography>
-          <Typography paragraph>
-            Matches
-          </Typography>
-          <Typography>
-            Matches
-          </Typography>
+          <Typography paragraph>Matches</Typography>
+          <Typography paragraph>Matches</Typography>
+          <Typography paragraph>Matches</Typography>
+          <Typography>Matches</Typography>
         </CardContent>
       </Collapse>
     </Card>
   );
 }
- 

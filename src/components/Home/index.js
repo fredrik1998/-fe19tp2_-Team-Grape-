@@ -1,7 +1,7 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import { findPrizePool, tournaments } from '../Data/tournaments';
-import { players, findPlayersByGameID } from '../Data';
+// import { players, findPlayersByGameID } from '../Data';
 import LineDemo from '../Chartjs/linegraph';
 
 export default class Home extends React.Component {
