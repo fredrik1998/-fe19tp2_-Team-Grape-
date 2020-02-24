@@ -1,6 +1,5 @@
 import React from 'react';
 import * as ROUTES from '../../constants/routes';
-import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
@@ -24,9 +23,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 
+
+
 const useTabs = makeStyles({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   tabs: {
     color: green
@@ -59,11 +60,13 @@ export default function CenteredTabs() {
             }
           }}
         >
-          <Tab label="Login" href={ROUTES.SIGN_IN}/>
+          
+          <Tab label="Login" href={ROUTES.SIGN_IN}  />
           <Tab label="Home" />
           <Tab label="Teams" />
           <Tab label="Games"/>
           <Tab label="Faq"/>
+        
         </StyledTabs>
       </Paper>
       <RecipeReviewCard />

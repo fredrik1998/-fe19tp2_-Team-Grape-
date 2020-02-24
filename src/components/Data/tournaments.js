@@ -4849,12 +4849,8 @@ export const findPrizePool = () => {
 
     });
     var result = arr.reduce(function (acc, item) {
-        console.log(item)
-        console.log(acc)
-        console.log({ ...acc })
 
         if (Object.values(item)[0] === 0) {
-            console.log("zero detected!")
             return { ...acc };
         } else {
             return { ...acc, ...item };
