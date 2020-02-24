@@ -1,24 +1,50 @@
 import React from 'react';
-import { Bar } from 'react-chartjs-2';
+import { Bar, Pie } from 'react-chartjs-2';
 import { findPrizePool, tournaments } from '../Data/tournaments';
+<<<<<<< HEAD
 // import { players, findPlayersByGameID } from '../Data';
+=======
+<<<<<<< Updated upstream
+// import { players, findPlayersByGameID } from '../Data';
+=======
+// import { players, findPlayersByGameID } from '../';
+>>>>>>> Stashed changes
+>>>>>>> 401af975b414a07625c9c6749a274469f4b35e8c
 import LineDemo from '../Chartjs/linegraph';
+import styled from 'styled-components'
+import DoughnutDemo from '../Chartjs/Doughnut';
+import BarDemo from '../Chartjs/Bar';
+import './styles.css';
+import Grid from '@material-ui/core/Grid';
+
+const StyledGrid = styled(Grid)`
+display: flex;
+flex-direction: ;
+justify-content: space-evenly;
+align-items: center;`
+
 
 export default class Home extends React.Component {
 
 
-  componentDidMount() {
-    // console.log(findPlayersByGameID(5));
-    // console.log(findPlayersByGameID(3));
-    console.log(findPrizePool());
-  }
+  // componentDidMount() {
+  //   // console.log(findPlayersByGameID(5));
+  //   // console.log(findPlayersByGameID(3));
+  //   console.log(findPrizePool());
+  // }
 
   render() {
     return (
+    
       <div>
         {<LineDemo />}
+        {<DoughnutDemo/>}
+        {<BarDemo/>}
       </div>
+   
     );
   }
 }
+
+
 
