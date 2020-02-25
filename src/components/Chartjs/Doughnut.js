@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Doughnut} from 'react-chartjs-2'
 import { findPrizePool } from '../Data/tournaments'
+import { weaponLabels, weaponData } from '../Data/gunstats';
 
 const prizeData = findPrizePool();
 
-const DoughnutData = {  labels: Object.keys(prizeData),
+
+const DoughnutData = {  labels: weaponLabels, 
     datasets: [
         {
-            label: 'Prize Pools',
+            labels: "weapons",
             fill: false,
             lineTension: 0.1,
             backgroundColor: 'rgba(75,192,192,0.4)',
@@ -25,10 +27,12 @@ const DoughnutData = {  labels: Object.keys(prizeData),
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: Object.values(prizeData)
+            data: Object.values(weaponData)
         }
     ]
 };
+
+
     
     
 

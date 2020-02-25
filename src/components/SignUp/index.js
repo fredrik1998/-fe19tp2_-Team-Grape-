@@ -4,6 +4,13 @@ import { withFirebase } from '../Firebase/context';
 import * as ROUTES from '../../constants/routes';
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
+import { Input } from '@material-ui/core';
+
+const Title = styled.h1`
+  font-size: 3em;
+  text-align: center;
+  color: #FFF;
+`;
 
 const StyledButton = styled(Button)({
   background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
@@ -15,14 +22,57 @@ const StyledButton = styled(Button)({
     padding: '0 30px',
   });
 
+  const Wrapper = styled.section`
+background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+border: 0,
+borderRadius: 3,
+boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+color: 'white',
+height: 48,
+padding: '0 30px',
+  
+`;
+
+const Form = styled.h5`
+  size: 10em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max;
+  height: max;
+  border: none;
+  background: #180F0F;
+  padding: 0 15px;
+  font-size: 16px;
+  outline: none;
+  color: white;
+`;
+
+const StyledInput = styled(Input)`
+  label="Filled";
+   variant="filled"; 
+   background-color:#26262b;
+  width: 100%;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 8px 0;
+  margin: 8px 0;
+   `
+
 
 
 
 const SignUpPage = () => (
+  <Form>
     <div>
+    <Wrapper>
+    <Title>
       <h1>SignUp</h1>
+      </Title>
+  </Wrapper>
       <SignUpForm />
     </div>
+    </Form>
   );
 
 const INITIAL_STATE = {
@@ -70,37 +120,37 @@ render() { const {
 
     return (
         <form onSubmit={this.onSubmit}>
-             <input
+             <StyledInput
           name="username"
           value={username}
           onChange={this.onChange}
           type="text"
           placeholder="Full Name"
         />
-        <input
+        <StyledInput
           name="email"
           value={email}
           onChange={this.onChange}
           type="text"
           placeholder="Email Address"
         />
-        <input
+        <StyledInput
           name="passwordOne"
           value={passwordOne}
           onChange={this.onChange}
           type="password"
           placeholder="Password"
         />
-        <input
+        <StyledInput
           name="passwordTwo"
           value={passwordTwo}
           onChange={this.onChange}
           type="password"
           placeholder="Confirm Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <StyledButton disabled={isInvalid} type="submit">
           Sign Up
-        </button>
+        </StyledButton>
         {error && <p>{error.message}</p>}
         </form>
         );
