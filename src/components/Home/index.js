@@ -12,9 +12,12 @@ import styled from 'styled-components';
 import DoughnutDemo from '../Chartjs/Doughnut';
 import KDA from '../Chartjs/kdaBar';
 import './styles.css';
+import {stats, } from '../Data/fakestats'
 // import Grid from '@material-ui/core/Grid';
 const prizeData = findPrizePool();
 const data = makeLineGraph(prizeData);
+
+
 
 
 
