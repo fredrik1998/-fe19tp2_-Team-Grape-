@@ -17,4 +17,6 @@ html {
   background: #180F0F;
 }
 
-
+::-webkit-scrollbar{  
+  overflow: auto;
+}
