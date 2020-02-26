@@ -1,6 +1,7 @@
 import React from 'react';
-import { Bar, Pie } from 'react-chartjs-2';
+import { Bar, Doughnut,Line} from 'react-chartjs-2';
 import { findPrizePool, tournaments } from '../Data/tournaments';
+import { makeBarGraph } from '../Chartjs/chartHelpers';
 
 import LineDemo from '../Chartjs/linegraph';
 import styled from 'styled-components';
@@ -67,23 +68,37 @@ export default class Home extends React.Component {
         }
       };
     }
+
+    componentDidMount () {
+      console.log(makeBarGraph());
+      console.log(this.state.data)
+    }
   
   render() {
     const options = {
-    
-      responsive: true,
+     
+      maintainAspectRatio: false,
+      responsive: false,
       legend: {
         display: false
       },
-      type: "bar"}
+      type: "Doughnut", }
+    
     return (
       <div>
-        {<LineDemo />}
-        {<DoughnutDemo/>}
+        <LineDemo
+      
+        />
+         <DoughnutDemo
+        options={{
+          responsive: true,
+          maintainAspectRatio: true,
+        }}
+      />
         <Bar
-        data={this.state.data}
-        width={null}
-        height={null}
+        data={makeBarGraph().data}
+        width={1000}
+        height={1000}
         options={options}
       />
  
