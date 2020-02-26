@@ -8,7 +8,7 @@ import DoughnutDemo from '../Chartjs/Doughnut';
 import BarDemo from '../Chartjs/Bar';
 import './styles.css';
 import Grid from '@material-ui/core/Grid';
-
+import { stats } from '../Data/fakestats';
 const StyledGrid = styled(Grid)`
 display: flex;
 flex-direction: row-reverse;`
@@ -23,10 +23,10 @@ export default class Home extends React.Component {
     return (
       <div>
         {<LineDemo />}
-        {<DoughnutDemo/>}
-        {<BarDemo/>}
+        {<DoughnutDemo />}
+        {<BarDemo />}
       </div>
-    
+
     );
   }
 }
