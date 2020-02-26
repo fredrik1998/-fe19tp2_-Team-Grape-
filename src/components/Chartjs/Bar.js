@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Bar} from 'react-chartjs-2'
 import { findPrizePool } from '../Data/tournaments'
-
+import '/index.css';
 const prizeData = findPrizePool();
 
 const BarData = {  labels: Object.keys(prizeData),
@@ -25,7 +25,9 @@ const BarData = {  labels: Object.keys(prizeData),
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: Object.values(prizeData)
+            data: Object.values(prizeData),
+            responsive:true,
+maintainAspectRatio: false, 
         }
     ]
 };
@@ -35,7 +37,7 @@ export default class BarDemo extends Component {
         return (
             <div>
                 <h2>Bar Example</h2>
-                <Bar ref="chart" data={BarData} height={40} width={200} />
+                <Bar ref="chart" data={BarData} height={40} width={20}  />
             </div>
         );
     } 

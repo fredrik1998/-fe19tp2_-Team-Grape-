@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
-import { findPrizePool } from '../Data/tournaments'
-
-
-
-
+import { findPrizePool } from '../Data/tournaments';
+import { makeLineGraph } from './chartHelpers';
 
 const prizeData = findPrizePool();
+const data = makeLineGraph(prizeData);
 
-const data = {
+/* const data = {
     labels: Object.keys(prizeData),
     datasets: [
         {
@@ -35,7 +33,7 @@ const data = {
     ]
 };
 
-
+ */
 
 
 export default class LineDemo extends Component {

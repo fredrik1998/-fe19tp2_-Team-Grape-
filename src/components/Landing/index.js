@@ -1,11 +1,12 @@
 import React from 'react';
 import * as ROUTES from '../../constants/routes';
-import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { green } from '@material-ui/core/colors';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -16,12 +17,13 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
+import { blueGrey } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Grid from '@material-ui/core/Grid';
+import { red } from '@material-ui/core/colors/';
 
 
 
@@ -60,19 +62,22 @@ export default function CenteredTabs() {
             }
           }}
         >
-          
-          <Tab label="Login" href={ROUTES.SIGN_IN}  />
+          <Tab label="Login" href={ROUTES.SIGN_IN} />
           <Tab label="Home" />
           <Tab label="Teams" />
-          <Tab label="Games"/>
-          <Tab label="Faq"/>
-        
+          <Tab label="Games" />
+          <Tab label="Faq" />
         </StyledTabs>
       </Paper>
       <RecipeReviewCard />
-      <CustomReviewCard avatar="F" title="FRASSE" description={`Frasse is a Swedish esports organization formed by Markus "pronax" Wallsten and
+      <CustomReviewCard
+        avatar="F"
+        title="FRASSE"
+        description={`Frasse is a Swedish esports organization formed by Markus "pronax" Wallsten and
           entrepreneur Tomas Oropesa Martin. In September 2019, The Final Tribe merged with
-          Godsent.[1]`} image="https://liquipedia.net/commons/images/thumb/a/a5/TeamGamerLegion.png/600px-TeamGamerLegion.png"/>
+          Godsent.[1]`}
+        image="https://liquipedia.net/commons/images/thumb/a/a5/TeamGamerLegion.png/600px-TeamGamerLegion.png"
+      />
     </React.Fragment>
   );
 }
@@ -82,23 +87,22 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 250
   },
   card: {
-    width: "100%",
+    width: '100%',
     backgroundColor: 'black',
     textAlign: 'center',
     justifyContent: 'center',
     alignContent: 'center',
-    padding: '30px',
+    padding: '30px'
   },
   media: {
     height: 0,
     paddingTop: '56.25%' // 16:9
-    
   },
-  typography: {
-    color: 'white'
+  body2: {
+    color: red[500]
   },
-  title: {
-    color: 'red'
+  Title: {
+    color: red[500]
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -111,9 +115,19 @@ const useStyles = makeStyles(theme => ({
     transform: 'rotate(180deg)'
   },
   avatar: {
-    backgroundColor: red[500]
+    backgroundColor: blueGrey[500]
   }
 }));
+
+const StyledTypography = withStyles({
+  root: {
+    color: blueGrey[500],
+},
+
+
+})(Typography);
+
+
 export function CustomReviewCard({ avatar, title, description, image }) {
   // avatar: 'hej, title: 'hej
   console.log(title);
@@ -148,9 +162,14 @@ export function CustomReviewCard({ avatar, title, description, image }) {
         title="GODSENT"
       />
       <CardContent>
-        <Typography variant="body2" color="grey[500]" lineHeight={1.8} fontSize={12} component="p">
+        <StyledTypography
+/*           variant="body2" */
+          lineHeight={1.8}
+          fontSize={12}
+          component="p"
+        >
           {description}
-        </Typography>
+        </StyledTypography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
@@ -179,10 +198,7 @@ export function CustomReviewCard({ avatar, title, description, image }) {
           <Typography>Matches</Typography>
         </CardContent>
       </Collapse>
-    
-
     </Card>
-    
   );
 }
 
@@ -218,11 +234,18 @@ export function RecipeReviewCard() {
         title="GODSENT"
       />
       <CardContent>
-        <Typography variant="body2" color="grey[500]" lineHeight={1.8} fontSize={12} component="p">
+        <StyledTypography
+          className={classes.root}
+          variant="body2"
+          color="orange[500]"
+          lineHeight={1.8}
+          fontSize={12}
+          component="p"
+        >
           Godsent is a Swedish esports organization formed by Markus "pronax" Wallsten and
           entrepreneur Tomas Oropesa Martin. In September 2019, The Final Tribe merged with
           Godsent.[1]
-        </Typography>
+        </StyledTypography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
