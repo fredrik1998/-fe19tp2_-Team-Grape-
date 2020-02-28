@@ -122,9 +122,7 @@ const useStyles = makeStyles(theme => ({
 const StyledTypography = withStyles({
   root: {
     color: blueGrey[500],
-},
-
-
+  }
 })(Typography);
 
 
@@ -163,7 +161,7 @@ export function CustomReviewCard({ avatar, title, description, image }) {
       />
       <CardContent>
         <StyledTypography
-/*           variant="body2" */
+          /*           variant="body2" */
           lineHeight={1.8}
           fontSize={12}
           component="p"
