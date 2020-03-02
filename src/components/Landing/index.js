@@ -22,14 +22,13 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
 import Grid from '@material-ui/core/Grid';
-import { red } from '@material-ui/core/colors/';
-
-
 
 const useTabs = makeStyles({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   tabs: {
     color: green
@@ -40,6 +39,14 @@ const StyledTabs = styled(Tabs)({
   background: `#180F0F`,
   color: 'white'
 });
+
+
+// {avatar: 'G', },
+const teamCards = [{avatar: 'F', title: 'FRASSE', subTitle: 'CS:GO Team', description: `Frasse is a Swedish esports organization formed by Markus "pronax" Wallsten and
+entrepreneur Tomas Oropesa Martin. In September 2019, The Final Tribe merged with
+Godsent.[1]`, image: "https://liquipedia.net/commons/images/thumb/a/a5/TeamGamerLegion.png/600px-TeamGamerLegion.png"}, 
+];
+
 
 export default function CenteredTabs() {
   const classes = useTabs();
@@ -69,41 +76,64 @@ export default function CenteredTabs() {
           <Tab label="Faq" />
         </StyledTabs>
       </Paper>
-      <RecipeReviewCard />
-      <CustomReviewCard
-        avatar="F"
-        title="FRASSE"
-        description={`Frasse is a Swedish esports organization formed by Markus "pronax" Wallsten and
+      <Grid container direction="row" justify="center" alignItems="center">
+        {teamCards.map((card, index) => <CustomReviewCard key={index} avatar={card.avatar} title={card.title} subTitle={card.subTitle} description={card.description} image={card.image} />)}
+        <RecipeReviewCard />
+        <CustomReviewCard
+          key={1}
+          avatar="F"
+          title="FRASSE"
+          subTitle="CS:GO TEAM"
+          description={`Frasse is a Swedish esports organization formed by Markus "pronax" Wallsten and
           entrepreneur Tomas Oropesa Martin. In September 2019, The Final Tribe merged with
           Godsent.[1]`}
-        image="https://liquipedia.net/commons/images/thumb/a/a5/TeamGamerLegion.png/600px-TeamGamerLegion.png"
-      />
+          image="https://liquipedia.net/commons/images/thumb/a/a5/TeamGamerLegion.png/600px-TeamGamerLegion.png"
+        />
+        <CustomReviewCard
+          key={2}
+          avatar="F"
+          title="GODSENT"
+          subTitle="CS:GO TEAM"
+          description={`Frasse is a Swedish esports organization formed by Markus "pronax" Wallsten and
+        entrepreneur Tomas Oropesa Martin. In September 2019, The Final Tribe merged with
+        Godsent.[1]`}
+          image="https://liquipedia.net/commons/images/thumb/a/a5/TeamGamerLegion.png/600px-TeamGamerLegion.png"
+        />
+      </Grid>
     </React.Fragment>
   );
 }
 
 const useStyles = makeStyles(theme => ({
   root: {
-    maxWidth: 250
+    maxWidth: 250,
+    margin: 'auto',
+    transition: '0.3s',
+    boxShadow: '0px 14px 80px rgba(34, 35, 58, 0.2)',
+    position: 'center',
+    marginLeft: 'auto',
+    overflow: 'initial',
+    background: '#ffffff'
+    /*     display: 'flex',
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+    alignItems: 'auto', */
+    /*     padding: '30px' */
   },
-  card: {
+  media: {
     width: '100%',
     backgroundColor: 'black',
     textAlign: 'center',
     justifyContent: 'center',
     alignContent: 'center',
-    padding: '30px'
+    padding: '30px',
+    borderRadius: 6
   },
-  media: {
-    height: 0,
-    paddingTop: '56.25%' // 16:9
+  title: {
+    color: 'black',
+    letterSpacing: '2px'
   },
-  body2: {
-    color: red[500]
-  },
-  Title: {
-    color: red[500]
-  },
+
   expand: {
     transform: 'rotate(0deg)',
     marginLeft: 'auto',
@@ -121,14 +151,11 @@ const useStyles = makeStyles(theme => ({
 
 const StyledTypography = withStyles({
   root: {
-    color: blueGrey[500],
-},
-
-
+    color: blueGrey[500]
+  }
 })(Typography);
 
-
-export function CustomReviewCard({ avatar, title, description, image }) {
+export function CustomReviewCard({ avatar, title, description, image, subTitle }) {
   // avatar: 'hej, title: 'hej
   console.log(title);
   const classes = useStyles();
@@ -151,8 +178,8 @@ export function CustomReviewCard({ avatar, title, description, image }) {
             <MoreVertIcon />
           </IconButton>
         }
-        title={title}
-        subheader="CSGO TEAM"
+        title={<StyledTypography>{title}</StyledTypography>}
+        subheader={<StyledTypography>{subTitle}</StyledTypography>}
       />
       <CardMedia
         component="img"
@@ -163,7 +190,7 @@ export function CustomReviewCard({ avatar, title, description, image }) {
       />
       <CardContent>
         <StyledTypography
-/*           variant="body2" */
+          /*           variant="body2" */
           lineHeight={1.8}
           fontSize={12}
           component="p"
@@ -172,13 +199,9 @@ export function CustomReviewCard({ avatar, title, description, image }) {
         </StyledTypography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <IconButton
+       
+       
+        <IconButton style={{ color: blueGrey[500] }}
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded
           })}
@@ -188,14 +211,16 @@ export function CustomReviewCard({ avatar, title, description, image }) {
         >
           <ExpandMoreIcon />
         </IconButton>
+        
+
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Latest Games:</Typography>
-          <Typography paragraph>Matches</Typography>
-          <Typography paragraph>Matches</Typography>
-          <Typography paragraph>Matches</Typography>
-          <Typography>Matches</Typography>
+          <StyledTypography paragraph>Latest Games:</StyledTypography> 
+          <StyledTypography paragraph>Matches</StyledTypography>
+          <StyledTypography paragraph>Matches</StyledTypography>
+          <StyledTypography paragraph>Matches</StyledTypography>
+          <StyledTypography>Matches</StyledTypography>
         </CardContent>
       </Collapse>
     </Card>
