@@ -1,6 +1,10 @@
 import { playerKDA } from '../Data/fakestats'
+import Chart from 'chart.js'
 
 // const backgroundColor = 'rgba(0, 196, 235)';
+
+Chart.defaults.global.defaultFontColor = "#fff";
+Chart.defaults.global.defaultFontFamily = "roboto"
 
 export const makeLineGraph = (prizeData) => ({
   labels: Object.keys(prizeData),
