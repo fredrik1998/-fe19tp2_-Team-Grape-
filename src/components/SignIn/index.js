@@ -49,7 +49,7 @@ const Form = styled.h5`
   width: max;
   height: max;
   border: none;
-  background: #180F0F;
+  background: #252830;
   padding: 0 15px;
   font-size: 16px;
   outline: none;

@@ -38,7 +38,7 @@ export const stats = {
                     "ign": "Brollan"
                 },
                 "kills": 31,
-                "assists": 0,
+                "assists": 1,
                 "deaths": 15
             },
             {
@@ -171,27 +171,44 @@ const usersObject = snapshot.val();
 */
 
 //nameList = ['Frasse', 'Hasse', 'Lasse', 's1mpel', 'flusha'];
-
-export const getIgn = () => {
-let arr = stats.home.player_stats.map((player) => {
-    let ign = player.player.ign
-    console.log(ign)
-    return ([ign])
-})
+/*
+{
+                "player": {
+                    "ign": "flusha"
+                },
+                "kills": 30,
+                "assists": 3,
+                "deaths": 18
+            },
+            */
+export const getPlayerKDA = () => {
+    let arr = stats.home.player_stats.map((playerObject) => (
+        {
+            [playerObject.player.ign]:
+            {
+                k: playerObject.kills,
+                d: playerObject.deaths,
+                a: playerObject.assists
+            }
+        }));
+    return arr;
+}
+const playerKDAObject = Object.assign({}, ...getPlayerKDA());
+console.log(playerKDAObject)
 // export const makeBarGraph = () => {
 // const kdaObject 
-    /* scanna igenom fakestats efter spelare, spara i en array av strängar. */
-    // ['Frasse', 'Hasse', 'Lasse']
+/* scanna igenom fakestats efter spelare, spara i en array av strängar. */
+// ['Frasse', 'Hasse', 'Lasse']
 
-    //spelarArray.map(name => ({name: {k: 34, d: 23, a: 4}}))
+//spelarArray.map(name => ({name: {k: 34, d: 23, a: 4}}))
 
-}
 
-const player = stats.home.player_stats
 
-const kills = player.map(person => ({value: person.kills}))
-const assists = player.map(person => ({value: person.assists}))
-const deaths = player.map(person => ({value: person.deaths}))
+/* const player = stats.home.player_stats
+
+const kills = player.map(person => ({ value: person.kills }))
+const assists = player.map(person => ({ value: person.assists }))
+const deaths = player.map(person => ({ value: person.deaths }))
 
 console.log(kills)
 console.log(assists)
@@ -203,7 +220,7 @@ console.log(kda)
 
 Object.keys(stats.home.player_stats)
 console.log(Object.keys(stats.home.player_stats))
-
+ */
 
 // export const makeBarGraph = () => {
 // const oldObject = { Frasse: {k: 1, a: 5, d: 10}, 
@@ -212,11 +229,13 @@ console.log(Object.keys(stats.home.player_stats))
 // s1mpel: {k: 4, a: 2, d: 7},
 // flusha: {k: 5, a: 1, d: 6}};
 
-// const nameList = Object.keys(kdaObject) // ['Frasse', 'Hasse', 'Lasse']
+const players = Object.keys(playerKDAObject) // ['Frasse', 'Hasse', 'Lasse']
 
-// const killList = Object.keys(stats.home.player_stats).map(key => stats.home.player_stats[key]);
-// const deathList = Object.keys(kdaObject).map(key => kdaObject[key].d);
-// const assistList = Object.keys(kdaObject).map(key => kdaObject[key].a);
-//     console.log(deathList)
+const kills = players.map(key => playerKDAObject[key].k);
+const deaths = players.map(key => playerKDAObject[key].d);
+const assists = players.map(key => playerKDAObject[key].a);
+export const playerKDA = { players, kills, deaths, assists }
+
+//console.log(deathList)
 
 // console.log(stats.home.player_stats)}

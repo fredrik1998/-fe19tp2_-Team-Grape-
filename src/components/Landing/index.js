@@ -36,7 +36,7 @@ const useTabs = makeStyles({
 });
 
 const StyledTabs = styled(Tabs)({
-  background: `#180F0F`,
+  background: `#252830`,
   color: 'white'
 });
 
@@ -151,7 +151,7 @@ const useStyles = makeStyles(theme => ({
 
 const StyledTypography = withStyles({
   root: {
-    color: blueGrey[500]
+    color: blueGrey[500],
   }
 })(Typography);
 
