@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color:#180F0F;
+  background-color:#252830
 }
 
 code {
@@ -14,7 +14,7 @@ code {
 }
 
 html {
-  background: #180F0F;
+  background: #252830
 }
 
 ::-webkit-scrollbar{  

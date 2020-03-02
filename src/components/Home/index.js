@@ -17,17 +17,6 @@ import { stats, } from '../Data/fakestats'
 const prizeData = findPrizePool();
 const data = makeLineGraph(prizeData);
 
-
-
-
-
-// const StyledGrid = styled(Grid)`
-// display: flex;
-// justify-content: space-around;
-// flex-direction: row-reverse;`
-
-
-
 // export default class Home extends React.Component {
 
 //   render() {
@@ -98,7 +87,7 @@ export default function FullWidthGrid() {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Doughnut
+          <Doughnut 
             data={makeDonutGraph(weaponLabels, weaponData)}
             width={500}
             height={225}

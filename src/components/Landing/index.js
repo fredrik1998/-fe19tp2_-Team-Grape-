@@ -37,7 +37,7 @@ const useTabs = makeStyles({
 });
 
 const StyledTabs = styled(Tabs)({
-  background: `#180F0F`,
+  background: `#252830`,
   color: 'white'
 });
 
