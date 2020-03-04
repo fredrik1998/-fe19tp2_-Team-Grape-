@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { withFirebase } from '../Firebase/context';
-import * as ROUTES from '../../constants/routes';
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
 import { Input } from '@material-ui/core';
+
+import * as ROUTES from '../../constants/routes';
+import * as ROLES from '../../constants/roles';
 
 const Title = styled.h1`
   font-size: 3em;
@@ -14,15 +16,15 @@ const Title = styled.h1`
 
 const StyledButton = styled(Button)({
   background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    border: 0,
-    borderRadius: 3,
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-  });
+  border: 0,
+  borderRadius: 3,
+  boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+  color: 'white',
+  height: 48,
+  padding: '0 30px',
+});
 
-  const Wrapper = styled.section`
+const Wrapper = styled.section`
 background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
 border: 0,
 borderRadius: 3,
@@ -65,62 +67,100 @@ const StyledInput = styled(Input)`
 const SignUpPage = () => (
   <Form>
     <div>
-    <Wrapper>
-    <Title>
-      <h1>SignUp</h1>
-      </Title>
-  </Wrapper>
+      <Wrapper>
+        <Title>
+          <h1>SignUp</h1>
+        </Title>
+      </Wrapper>
       <SignUpForm />
     </div>
-    </Form>
-  );
+  </Form>
+);
 
 const INITIAL_STATE = {
-    username: '',
-    email: '',
-    passwordOne: '',
-    passwordTwo: '',
-    error: null,
-  };
- 
-  
-class SignUpFormBase extends Component {
-constructor(props) {
-super(props);
-this.state = { ...INITIAL_STATE };
-}
-onSubmit = event => {const { username, email, passwordOne } = this.state;
-this.props.firebase
-  .doCreateUserWithEmailAndPassword(email, passwordOne)
-  .then(authUser => {
-    this.setState({ ...INITIAL_STATE });
-    this.props.history.push(ROUTES.HOME);
-  })
-  .catch(error => {
-    this.setState({ error });
-  });
-event.preventDefault();
-}
-onChange = event => { this.setState({ [event.target.name]: event.target.value });
+  username: '',
+  email: '',
+  passwordOne: '',
+  passwordTwo: '',
+  error: null,
+  isAdmin: false,
+  isBranded: false
 };
 
-render() { const {
-    username,
-    email,
-    passwordOne,
-    passwordTwo,
-    error,
-  } = this.state;
 
-  const isInvalid =
+class SignUpFormBase extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { ...INITIAL_STATE };
+  }
+  onChangeCheckbox = event => {
+    this.setState({ [event.target.name]: event.target.checked });
+  };
+
+  onSubmit = event => {
+    const { username, email, passwordOne, isAdmin, isBranded } = this.state;
+
+    const roles = {};
+    if (isAdmin) {
+      roles[ROLES.ADMIN] = ROLES.ADMIN;
+    }
+    if (isBranded) {
+      roles[ROLES.BRANDED] = ROLES.BRANDED;
+    }
+
+    this.props.firebase
+      .doCreateUserWithEmailAndPassword(email, passwordOne)
+      .then(authUser => {
+        this.setState({ ...INITIAL_STATE });
+        this.props.history.push(ROUTES.HOME);
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
+    event.preventDefault();
+  }
+  onChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  render() {
+    const {
+      username,
+      email,
+      passwordOne,
+      passwordTwo,
+      error,
+      isAdmin,
+      isBranded
+    } = this.state;
+
+    const isInvalid =
       passwordOne !== passwordTwo ||
       passwordOne === '' ||
       email === '' ||
       username === '';
 
     return (
-        <form onSubmit={this.onSubmit}>
-             <StyledInput
+      <form onSubmit={this.onSubmit}>
+        <label>
+          Admin:
+          <StyledInput
+            name="isAdmin"
+            type="checkbox"
+            checked={isAdmin}
+            onChange={this.onChangeCheckbox}
+          />
+        </label>
+        <label>
+          Branded:
+          <StyledInput
+            name="isAdmin"
+            type="checkbox"
+            checked={isBranded}
+            onChange={this.onChangeCheckbox}
+          />
+        </label>
+        <StyledInput
           name="username"
           value={username}
           onChange={this.onChange}
@@ -152,23 +192,22 @@ render() { const {
           Sign Up
         </StyledButton>
         {error && <p>{error.message}</p>}
-        </form>
-        );
-        }
-        }
-        const SignUpLink = () => (
-        <p>
-          <StyledButton>
-        <Link style={{ textDecoration: 'none' }} to={ROUTES.SIGN_UP}>Don't have an account? Sign Up</Link>
-      </StyledButton>
-        </p>
-        );
-   const SignUpForm = withRouter(withFirebase(SignUpFormBase));
-  
+      </form>
+    );
+  }
+}
+const SignUpLink = () => (
+  <p>
+    <StyledButton>
+      <Link style={{ textDecoration: 'none' }} to={ROUTES.SIGN_UP}>Don't have an account? Sign Up</Link>
+    </StyledButton>
+  </p>
+);
+const SignUpForm = withRouter(withFirebase(SignUpFormBase));
 
-        
 
-        export default SignUpPage;
-        export { SignUpForm, SignUpLink };
 
-        
+
+export default SignUpPage;
+export { SignUpForm, SignUpLink };
+

@@ -26,18 +26,23 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Grid from '@material-ui/core/Grid';
 
-const useTabs = makeStyles({
+const useTabs = makeStyles(theme => ({
   root: {
     flexGrow: 1
   },
   tabs: {
-    color: green
-  }
-});
+    color: green,
+  },
+  large: {
+    width: theme.spacing(12),
+    height: theme.spacing(12),
+  },
+
+}));
 
 const StyledTabs = styled(Tabs)({
   background: `#252830`,
-  color: 'white'
+  color: 'white',
 });
 
 
@@ -69,11 +74,7 @@ export default function CenteredTabs() {
             }
           }}
         >
-          <Tab label="Login" href={ROUTES.SIGN_IN} />
-          <Tab label="Home" />
-          <Tab label="Teams" />
-          <Tab label="Games" />
-          <Tab label="Faq" />
+          <Tab label="Login" className={classes.large} href={ROUTES.SIGN_IN} />
         </StyledTabs>
       </Paper>
       <Grid container direction="row" justify="center" alignItems="center">

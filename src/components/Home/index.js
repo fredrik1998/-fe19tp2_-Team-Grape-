@@ -21,116 +21,28 @@ const data = makeLineGraph(prizeData);
   const StyledGrid = styled(Grid)`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
  `
 
 const Title = styled.h2`
 text-align: center;
 color: #FFF;`
 
-const options = {
-
-  maintainAspectRatio: true,
-  responsive: true,
-  legend: {
-    display: true
+const useTabs = makeStyles({
+  root: {
+    flexGrow: 1
   },
-
-}
-
-
-export default function FullWidthGrid() {
-  const classes = useStyles();
-
-  return (
-    <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Title>
-        <h2>Welcome Fnatic</h2>
-        <Avatar alt="flusha" img src={require('./fnatic.png')} className={classes.mega} />
-        </Title>
-      <StyledGrid item xs={12} zeroMinWidth>
-      <Avatar alt="flusha" img src={require('./flusha.jpg')} className={classes.large} />
-<Avatar alt="KRIMZ" img src={require("./KRIMZ.jpg")} className={classes.large} />
-<Avatar alt="Cindy Baker" img src={require("./JW.jpg")} className={classes.large} />
-<Avatar alt="Cindy Baker" img src={require("./Brollan.jpg")} className={classes.large}  />
-<Avatar alt="Cindy Baker" img src={require("./Golden.jpg")} className={classes.large}/>
-</StyledGrid>
-
-        <Grid item xs={12} zeroMinWidth >
-          <Line 
-            data={makeLineGraph(prizeData)}
-            width={500}
-            height={100}
-            options={options}
-
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Doughnut 
-            data={makeDonutGraph(weaponLabels, weaponData)}
-            width={500}
-            height={225}
-            options={options}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Bar
-            data={makeBarGraph().data}
-            width={500}
-            height={225}
-            options={options}
-          />
-        </Grid>
-      </Grid>
-
-
-    </div>
-  );
-}
-
-
-
-//     return (
-//       <div>
-//         <Line
-//          data={makeLineGraph(prizeData)}
-//          width={500}
-//          height={500}
-//          options={options}
-
-//         />
-//         <StyledGrid>
-// <Doughnut
-//    data={makeDonutGraph(weaponLabels, weaponData)}
-//    width={500}
-//    height={500}
-//    options={options}
-// />
-// <Bar
-//   data={makeBarGraph().data}
-//   width={500}
-//   height={500}
-//   options={options}
-// />
-//         </StyledGrid>
-
-
-
-//       </div>
-
-//     );
-//   }
-// }
-
-
+  tabs: {
+    color: green
+  }
+});
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
   mega: {
-    width: theme.spacing(20),
-    height: theme.spacing(20),
+    width: theme.spacing(30),
+    height: theme.spacing(30),
   },
   large: {
     width: theme.spacing(12),
@@ -138,3 +50,66 @@ const useStyles = makeStyles(theme => ({
   },
 
 }));
+
+
+const StyledTabs = styled(Tabs)({
+  background: `#252830`,
+  color: 'white',
+  display: 'flex',
+  alignItems: 'flex-start'
+  
+});
+
+export default function CenteredTabs() {
+ const classes = useStyles();
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <React.Fragment>
+    <Paper className={classes.root}>
+        <StyledTabs
+          value={value}
+          centered
+          onChange={handleChange}
+          TabIndicatorProps={{
+            style: {
+              backgroundColor: '#F5F5F5'
+            }
+          }}
+        >
+          <Tab label="Home" href={ROUTES.HOME} />
+          <Tab label="Teams" />
+          <Tab label="Games" />
+          <Tab label="Dashboard" href={ROUTES.DASHBOARD} />
+        </StyledTabs>
+      </Paper>
+    
+    <div className={classes.root}>
+    <Grid container spacing={3}>
+    <Grid item xs={12} sm={12}>
+    <Title>
+      <h2>Welcome Fnatic</h2>
+      <Avatar alt="flusha" img src={require('./fnatic.png')} className={classes.mega} />
+      </Title>
+    <StyledGrid item xs={12} zeroMinWidth>
+    <Avatar alt="flusha" img src={require('./flusha.jpg')} className={classes.large} />
+<Avatar alt="KRIMZ" img src={require("./KRIMZ.jpg")} className={classes.large} />
+<Avatar alt="Cindy Baker" img src={require("./JW.jpg")} className={classes.large} />
+<Avatar alt="Cindy Baker" img src={require("./Brollan.jpg")} className={classes.large}  />
+<Avatar alt="Cindy Baker" img src={require("./Golden.jpg")} className={classes.large}/>
+</StyledGrid>
+</Grid>
+</Grid>
+</div>
+</React.Fragment>
+  );
+}
+
+      
+
+  
+
