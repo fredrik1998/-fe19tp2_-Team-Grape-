@@ -81,10 +81,10 @@ export default function CenteredTabs() {
             }
           }}
         >
-          <Tab label="Home" href={ROUTES.HOME} />
+          {/* <Tab label="Home" href={ROUTES.HOME} />
           <Tab label="Teams" />
           <Tab label="Games" />
-          <Tab label="Dashboard" href={ROUTES.DASHBOARD} />
+          <Tab label="Dashboard" href={ROUTES.DASHBOARD} /> */}
         </StyledTabs>
       </Paper>
     

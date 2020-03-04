@@ -74,7 +74,7 @@ export default function CenteredTabs() {
             }
           }}
         >
-          <Tab label="Login" className={classes.large} href={ROUTES.SIGN_IN} />
+          {/* <Tab label="Login" className={classes.large} href={ROUTES.SIGN_IN} /> */}
         </StyledTabs>
       </Paper>
       <Grid container direction="row" justify="center" alignItems="center">
