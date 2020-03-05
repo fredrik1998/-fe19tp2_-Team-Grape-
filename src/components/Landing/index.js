@@ -47,9 +47,8 @@ const StyledTabs = styled(Tabs)({
 
 
 // {avatar: 'G', },
-const teamCards = [{avatar: 'F', title: 'FRASSE', subTitle: 'CS:GO Team', description: `Frasse is a Swedish esports organization formed by Markus "pronax" Wallsten and
-entrepreneur Tomas Oropesa Martin. In September 2019, The Final Tribe merged with
-Godsent.[1]`, image: "https://liquipedia.net/commons/images/thumb/a/a5/TeamGamerLegion.png/600px-TeamGamerLegion.png"}, 
+const teamCards = [{avatar: 'G', title: 'GODSENT', subTitle: 'CS:GO Team', description: ` Swedish esports organization formed by former Fnatic in-game leader Markus "pronax" Wallsten and entrepreneur Tomas Oropesa Martin. The organization ceased operation following the sale of its roster to Red Reserve and RFRSH's withdrawal from the team's operations.[1]
+`, image: "https://liquipedia.net/commons/images/thumb/a/a3/GODSENT.png/900px-GODSENT.png"}, 
 ];
 
 
@@ -79,26 +78,42 @@ export default function CenteredTabs() {
       </Paper>
       <Grid container direction="row" justify="center" alignItems="center">
         {teamCards.map((card, index) => <CustomReviewCard key={index} avatar={card.avatar} title={card.title} subTitle={card.subTitle} description={card.description} image={card.image} />)}
-        <RecipeReviewCard />
+        
         <CustomReviewCard
           key={1}
-          avatar="F"
-          title="FRASSE"
+          avatar="G"
+          title="GamerLegion"
           subTitle="CS:GO TEAM"
-          description={`Frasse is a Swedish esports organization formed by Markus "pronax" Wallsten and
-          entrepreneur Tomas Oropesa Martin. In September 2019, The Final Tribe merged with
-          Godsent.[1]`}
+          description={`Team GamerLegion is a German esports organization founded in 2017. They are mostly known for their League of Legends team, but they also field active rosters in Global Offensive and Rainbow Six.[1]`}
           image="https://liquipedia.net/commons/images/thumb/a/a5/TeamGamerLegion.png/600px-TeamGamerLegion.png"
         />
         <CustomReviewCard
           key={2}
-          avatar="F"
-          title="GODSENT"
+          avatar="N"
+          title="Ninjas In Pyjamas"
           subTitle="CS:GO TEAM"
-          description={`Frasse is a Swedish esports organization formed by Markus "pronax" Wallsten and
-        entrepreneur Tomas Oropesa Martin. In September 2019, The Final Tribe merged with
-        Godsent.[1]`}
-          image="https://liquipedia.net/commons/images/thumb/a/a5/TeamGamerLegion.png/600px-TeamGamerLegion.png"
+          description={`Ninjas in Pyjamas is a Swedish esports organization which was founded in 2000. The team competed in Counter-Strike until their dissolution in 2007. In 2012, the team returned with a now heavily renowned Counter-Strike: Global Offensive squad.[1]`}
+          image="https://upload.wikimedia.org/wikipedia/en/thumb/d/d0/Ninjas_in_Pyjamas_logo.svg/1200px-Ninjas_in_Pyjamas_logo.svg.png"
+        />
+        <CustomReviewCard
+          key={3}
+          avatar="F"
+          title="Fnatic"
+          subTitle="CS:GO TEAM"
+          description={`Fnatic, occasionally stylized as fnatic and abbreviated as FNC, is a world leader in multiple games, such as League of Legends, Dota 2 and more. Fnatic's players attend more than 75 events per year, representing Fnatic in over 25 countries. More than 1,300,000 fans on social media follow the team.
+
+          In Europe, the US, India, and South America, Fnatic stands as one of the best esports organizations, whose players have achieved numerous tournament wins. Fnatic also won the ESPORTS Team of the Year Award in 2006 and 2009.
+          
+          The management around founders Sam and Anne Mathews resides in London, where Fnatic's main office is located.`}
+          image="https://liquipedia.net/commons/images/thumb/9/96/Fnatic_2020_infoboximage.png/900px-Fnatic_2020_infoboximage.png"
+        />
+        <CustomReviewCard
+          key={2}
+          avatar="N"
+          title="Navi"
+          subTitle="CS:GO TEAM"
+          description={`Natus Vincere Latin: "born to win", often abbreviated as NaVi is a leading multi-game esports organization from Ukraine. It is the first team in Counter-Strike history to win three major tournaments in one calendar year - IEM Season IV, ESWC 2010 and WCG 2010.`}
+          image="https://liquipedia.net/commons/images/thumb/d/d6/Natus_Vincere.png/900px-Natus_Vincere.png"
         />
       </Grid>
     </React.Fragment>
@@ -228,78 +243,7 @@ export function CustomReviewCard({ avatar, title, description, image, subTitle }
   );
 }
 
-export function RecipeReviewCard() {
-  const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
-  return (
-    <Card className={classes.root} style={{ backgroundColor: '#271F1F' }}>
-      <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            G
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="GODSENT"
-        subheader="CSGO TEAM"
-      />
-      <CardMedia
-        component="img"
-        className={classes.media.MuiCardMedia}
-        height="200"
-        image="https://upload.wikimedia.org/wikipedia/en/3/36/Godsent_logo.png"
-        title="GODSENT"
-      />
-      <CardContent>
-        <StyledTypography
-          className={classes.root}
-          variant="body2"
-          color="orange[500]"
-          lineHeight={1.8}
-          fontSize={12}
-          component="p"
-        >
-          Godsent is a Swedish esports organization formed by Markus "pronax" Wallsten and
-          entrepreneur Tomas Oropesa Martin. In September 2019, The Final Tribe merged with
-          Godsent.[1]
-        </StyledTypography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Latest Games:</Typography>
-          <Typography paragraph>Matches</Typography>
-          <Typography paragraph>Matches</Typography>
-          <Typography paragraph>Matches</Typography>
-          <Typography>Matches</Typography>
-        </CardContent>
-      </Collapse>
-    </Card>
-  );
-}
+
+ 
