@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     };
   
     return (
-      <Grid container className={classes.root} spacing={2}>
+      <Grid container className={classes.root} spacing={8}>
         <Grid item xs={12}>
           <Grid container justify="center" spacing={spacing}>
             {[0, 1, 2].map(value => (
@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
           <Paper className={classes.control}>
             <Grid container>
               <Grid item>
-                <FormLabel justify="center">spacing</FormLabel>
+                <FormLabel justify="center">Tournament</FormLabel>
                 </Grid>
           </Grid>
         </Paper>
@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
           <Paper className={classes.control}>
             <Grid container>
               <Grid item>
-                <FormLabel justify="center">spacing</FormLabel>
+                <FormLabel justify="center">Tournament</FormLabel>
                 </Grid>
           </Grid>
         </Paper>
@@ -59,7 +59,16 @@ const useStyles = makeStyles(theme => ({
           <Paper className={classes.control}>
             <Grid container>
               <Grid item>
-                <FormLabel justify="center">spacing</FormLabel>
+                <FormLabel justify="center">Tournament</FormLabel>
+                </Grid>
+          </Grid>
+        </Paper>
+      </Grid>
+      <Grid item xs={6} >
+          <Paper className={classes.control}>
+            <Grid container>
+              <Grid item>
+                <FormLabel justify="center">Tournament</FormLabel>
                 </Grid>
           </Grid>
         </Paper>
