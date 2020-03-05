@@ -29,14 +29,6 @@ const Title = styled.h2`
 text-align: center;
 color: #FFF;`
 
-const useTabs = makeStyles({
-  root: {
-    flexGrow: 1
-  },
-  tabs: {
-    color: green
-  }
-});
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -61,26 +53,12 @@ const StyledTabs = styled(Tabs)({
 
 });
 
-const HomePage = () => (
+export function CenteredTabs() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
 
-  <React.Fragment>
-    <Paper className={classes.root}>
-      <StyledTabs
-        value={value}
-        centered
-        onChange={handleChange}
-        TabIndicatorProps={{
-          style: {
-            backgroundColor: '#F5F5F5'
-          }
-        }}
-      >
-        {/* <Tab label="Home" href={ROUTES.HOME} />
-          <Tab label="Teams" />
-          <Tab label="Games" />
-          <Tab label="Dashboard" href={ROUTES.DASHBOARD} /> */}
-      </StyledTabs>
-    </Paper>
+  return (
+
 
     <div className={classes.root}>
       <Grid container spacing={3}>
@@ -99,12 +77,9 @@ const HomePage = () => (
         </Grid>
       </Grid>
     </div>
-  </React.Fragment>
-);
 
-
-const condition = authUser => !!authUser;
-export default withAuthorization(condition)(HomePage);
+  );
+}
 
 
 

@@ -62,7 +62,6 @@ const NavigationNonAuth = () => (
     <StyledTabs
       centered
     >
-
       <Tab label="Landing" component={Link} to="/" />
 
       <Tab label="Login" component={Link} to="/signin" />
