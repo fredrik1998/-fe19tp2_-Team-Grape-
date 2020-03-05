@@ -36,13 +36,13 @@ const NavigationAuth = () => (
     
   >
       
-      <Tab label="Landing" href={ROUTES.LANDING}></Tab>
+
     
       <Tab label="Home" href={ROUTES.HOME}></Tab>
 
       <Tab label="Teams" />
 
-     <Tab label="Games" />
+     <Tab label="Games" href={ROUTES.GAMES}></Tab>
 
      <Tab label="Account" href={ROUTES.ACCOUNT}></Tab>
 
