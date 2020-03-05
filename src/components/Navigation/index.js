@@ -29,45 +29,46 @@ const StyledTabs = styled(Tabs)({
 });
 
 const NavigationAuth = () => (
-  
+
   <Paper >
-  <StyledTabs
-  centered
-    
-  >
-      
+    <StyledTabs
+      centered
+
+    >
 
 
-      <Tab label="Home"  component={Link} to="/Home"/>
 
-      <Tab label="Teams" component={Link} to="/Teams"/>
+      <Tab label="Home" component={Link} to="/Home" />
 
-     <Tab label="Games" component={Link} to="/Games"/>
+      <Tab label="Teams" component={Link} to="/Teams" />
 
-     <Tab label="Account" component={Link} to="/Account"/>
+      <Tab label="Games" component={Link} to="/Games" />
 
-     <Tab label="Dashboard" component={Link} to="/Dashboard"/>
-    
-    
-      <SignOutButton  />
-   
-  </StyledTabs>
-      </Paper> 
-     
+      <Tab label="Account" component={Link} to="/Account" />
+
+      <Tab label="Dashboard" component={Link} to="/Dashboard" />
+
+      <Tab label="Admin" component={Link} to="/Admin" />
+
+      <SignOutButton />
+
+    </StyledTabs>
+  </Paper>
+
 )
 
 const NavigationNonAuth = () => (
   <Paper >
-  <StyledTabs
-  centered
-  >
-  
-      <Tab label="Landing" component={Link} to="/"/>
-    
-      <Tab label="Login" component={Link} to="/signin"/>
-    
-  </StyledTabs>
-      </Paper> 
-      
+    <StyledTabs
+      centered
+    >
+
+      <Tab label="Landing" component={Link} to="/" />
+
+      <Tab label="Login" component={Link} to="/signin" />
+
+    </StyledTabs>
+  </Paper>
+
 );
 export default Navigation;

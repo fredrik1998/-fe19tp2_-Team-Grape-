@@ -1,10 +1,6 @@
 import { playerKDA } from '../Data/fakestats'
-import Chart from 'chart.js'
 
 // const backgroundColor = 'rgba(0, 196, 235)';
-
-Chart.defaults.global.defaultFontColor = "#fff";
-Chart.defaults.global.defaultFontFamily = "roboto"
 
 export const makeLineGraph = (prizeData) => ({
   labels: Object.keys(prizeData),
@@ -123,18 +119,18 @@ export const makeBarGraph = () => {
       datasets: [
         {
           label: "Kills",
-          backgroundColor: 'rgba(	0, 255, 0)',
-          borderColor: 'rgba(	0, 255, 0',
+          backgroundColor: 'rgba(75,192,192,0.4)',
+          borderColor: 'rgba(75,192,192,0.4)',
           borderWidth: 1,
-          borderColor: 'rgba(	0, 255, 0',
+          borderColor: 'rgba(75,192,192,1)',
           borderCapStyle: 'butt',
           borderDash: [],
           borderDashOffset: 0.0,
           borderJoinStyle: 'miter',
-          pointBorderColor: 'rgba(	0, 255, 0)',
+          pointBorderColor: 'rgba(75,192,192,1)',
           //stack: 1,
-          hoverBackgroundColor: 'rgba(	0, 255, 0)',
-          hoverBorderColor: 'rgba(	0, 255, 0)',
+          hoverBackgroundColor: 'rgba(75,192,192,0.4)',
+          hoverBorderColor: 'rgba(75,192,192,0.4)',
           data: kills
         },
 
@@ -157,18 +153,18 @@ export const makeBarGraph = () => {
         },
         {
           label: "Deaths",
-          backgroundColor: 'rgba(	255, 0, 0)',
-          borderColor: 'rgba(	255, 0, 0)',
+          backgroundColor: 'rgba(75,192,192,0.4)',
+          borderColor: 'rgba(75,192,192,0.4)',
           borderWidth: 1,
-          borderColor: 'rgba(	255, 0, 0)',
+          borderColor: 'rgba(75,192,192,1)',
           borderCapStyle: 'butt',
           borderDash: [],
           borderDashOffset: 0.0,
           borderJoinStyle: 'miter',
-          pointBorderColor: 'rgba(	255, 0, 0)',
+          pointBorderColor: 'rgba(75,192,192,1)',
           //stack: 1,
-          hoverBackgroundColor: 'rgba(	255, 0, 0)',
-          hoverBorderColor: 'rgba(	255, 0, 0)',
+          hoverBackgroundColor: 'rgba(75,192,192,0.4)',
+          hoverBorderColor: 'rgba(75,192,192,0.4)',
           data: deaths
         },
       ]
@@ -183,19 +179,18 @@ export const makeDonutGraph = (weaponLabels, weaponData, ) => ({
       labels: "Weapon usage",
       fill: false,
       lineTension: 0.1,
-      backgroundColor: ['rgba(75,192,192,0.4)','rgba(0,0,0,0.4)', 'rgba(255,255,255,0.4)', 'rgba(255,0,0,0.4)', 'rgba(0,255,0,0.4)', 'rgba(0,0,255,0.4)','rgba(255,255,0,0.4)','rgba(255,0,255,0.4)','rgba(0,0,128,0.4)','rgba(128,0,0,0.4)','rgba(128,128,0,0.4)','rgba(0,128,0,0.4)','rgba(128,0,128,0.4)'],
-      borderColor: ['rgba(75,192,192,0.4)','rgba(0,0,0,0.4)', 'rgba(255,255,255,0.4)', 'rgba(255,0,0,0.4)', 'rgba(0,255,0,0.4)', 'rgba(0,0,255,0.4)','rgba(255,255,0,0.4)','rgba(255,0,255,0.4)','rgba(0,0,128,0.4)','rgba(128,0,0,0.4)','rgba(128,128,0,0.4)','rgba(0,128,0,0.4)','rgba(128,0,128,0.4)'],
+      backgroundColor: 'rgba(75,192,192,0.4)',
+      borderColor: 'rgba(75,192,192,1)',
       borderCapStyle: 'butt',
       borderDash: [],
-      scaleFontColor: '#FFF',
       borderDashOffset: 0.0,
       borderJoinStyle: 'miter',
-      pointBorderColor: ['rgba(75,192,192,0.4)','rgba(0,0,0,0.4)', 'rgba(255,255,255,0.4)', 'rgba(255,0,0,0.4)', 'rgba(0,255,0,0.4)', 'rgba(0,0,255,0.4)','rgba(255,255,0,0.4)','rgba(255,0,255,0.4)','rgba(0,0,128,0.4)','rgba(128,0,0,0.4)','rgba(128,128,0,0.4)','rgba(0,128,0,0.4)','rgba(128,0,128,0.4)'],
+      pointBorderColor: 'rgba(75,192,192,1)',
       pointBackgroundColor: '#fff',
       pointBorderWidth: 1,
       pointHoverRadius: 5,
-      pointHoverBackgroundColor: ['rgba(75,192,192,0.4)','rgba(0,0,0,0.4)', 'rgba(255,255,255,0.4)', 'rgba(255,0,0,0.4)', 'rgba(0,255,0,0.4)', 'rgba(0,0,255,0.4)','rgba(255,255,0,0.4)','rgba(255,0,255,0.4)','rgba(0,0,128,0.4)','rgba(128,0,0,0.4)','rgba(128,128,0,0.4)','rgba(0,128,0,0.4)','rgba(128,0,128,0.4)'],
-      pointHoverBorderColor: ['rgba(75,192,192,0.4)','rgba(0,0,0,0.4)', 'rgba(255,255,255,0.4)', 'rgba(255,0,0,0.4)', 'rgba(0,255,0,0.4)', 'rgba(0,0,255,0.4)','rgba(255,255,0,0.4)','rgba(255,0,255,0.4)','rgba(0,0,128,0.4)','rgba(128,0,0,0.4)','rgba(128,128,0,0.4)','rgba(0,128,0,0.4)','rgba(128,0,128,0.4)'],
+      pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+      pointHoverBorderColor: 'rgba(220,220,220,1)',
       pointHoverBorderWidth: 2,
       pointRadius: 1,
       pointHitRadius: 10,
@@ -203,5 +198,3 @@ export const makeDonutGraph = (weaponLabels, weaponData, ) => ({
     }
   ]
 });
-
-
