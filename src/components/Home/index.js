@@ -53,7 +53,7 @@ const StyledTabs = styled(Tabs)({
 
 });
 
-export function CenteredTabs() {
+export default function CenteredTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
