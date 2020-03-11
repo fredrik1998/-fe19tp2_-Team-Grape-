@@ -22,11 +22,11 @@ import Games from '../Games';
 
 
 const App = () => (
-  
+
 
   <Router>
     <div>
-      <Navigation/>
+      <Navigation />
       <hr />
       <Route exact path={ROUTES.LANDING} component={LandingPage} />
       <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
@@ -35,8 +35,8 @@ const App = () => (
       <Route path={ROUTES.HOME} component={HomePage} />
       <Route path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route path={ROUTES.ADMIN} component={AdminPage} />
-      <Route path={ROUTES.DASHBOARD} component={Dashboard}/>
-      <Route path={ROUTES.GAMES} component={Games}/>
+      <Route path={ROUTES.DASHBOARD} component={Dashboard} />
+      <Route path={ROUTES.GAMES} component={Games} />
     </div>
   </Router>
 );
@@ -46,5 +46,5 @@ const App = () => (
 
 
 
- 
+
 export default withAuthentication(App);

@@ -1,4 +1,3 @@
-// import React from 'react';
 import React from 'react';
 import { withAuthorization } from '../Session';
 import * as ROUTES from '../../constants/routes';
@@ -18,16 +17,21 @@ import Avatar from '@material-ui/core/Avatar'
 const prizeData = findPrizePool();
 const data = makeLineGraph(prizeData);
 
+document.body.style.backgroundImage = 'url(https://wallpapercave.com/wp/wp1884600.jpg)';
+
 // export default class Home extends React.Component {
 const StyledGrid = styled(Grid)`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
  `
 
 const Title = styled.h2`
 text-align: center;
-color: #FFF;`
+color: #FFF;
+font-family: Arial, Helvetica, sans-serif;
+`
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -65,7 +69,11 @@ export default function CenteredTabs() {
         <Grid item xs={12} sm={12}>
           <Title>
             <h2>Welcome Fnatic</h2>
+<<<<<<< Updated upstream
             <StyledGrid><Avatar alt="flusha" img src={require('./fnatic.png')} className={classes.mega}/></StyledGrid>
+=======
+            <StyledGrid><Avatar alt="flusha" img src={require('./fnatic.png')} className={classes.mega} /></StyledGrid>
+>>>>>>> Stashed changes
           </Title>
           <StyledGrid item xs={12} zeroMinWidth>
             <Avatar alt="flusha" img src={require('./flusha.jpg')} className={classes.large} />
@@ -76,7 +84,7 @@ export default function CenteredTabs() {
           </StyledGrid>
         </Grid>
       </Grid>
-    </div>
+    </div >
 
   );
 }

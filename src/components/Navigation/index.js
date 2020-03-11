@@ -40,7 +40,7 @@ const NavigationAuth = () => (
 
       <Tab label="Home" component={Link} to="/Home" />
 
-      <Tab label="Teams" component={Link} to="/Teams" />
+      {/* <Tab label="Teams" component={Link} to="/Teams" /> */}
 
       <Tab label="Games" component={Link} to="/Games" />
 
@@ -48,7 +48,7 @@ const NavigationAuth = () => (
 
       <Tab label="Dashboard" component={Link} to="/Dashboard" />
 
-      <Tab label="Admin" component={Link} to="/Admin" />
+      {/* <Tab label="Admin" component={Link} to="/Admin" /> */}
 
       <SignOutButton />
 
@@ -62,7 +62,7 @@ const NavigationNonAuth = () => (
     <StyledTabs
       centered
     >
-      
+
 
       <Tab label="Login" component={Link} to="/signin" />
 
