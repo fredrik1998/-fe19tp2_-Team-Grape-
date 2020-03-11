@@ -108,9 +108,9 @@ export default function CenteredTabs() {
           avatar="F"
           title="Fnatic"
           subTitle="CS:GO TEAM"
-          description={`Fnatic, occasionally stylized as fnatic and abbreviated as FNC, is a world leader in multiple games, such as League of Legends, Dota 2 and more. Fnatic's players attend more than 75 events per year, representing Fnatic in over 25 countries. More than 1,300,000 fans on social media follow the team.
+          description={`Fnatic, occasionally stylized as fnatic and abbreviated as FNC, is a world leader in multiple games, such as League of Legends, Dota 2 and more. 
 
-          In Europe, the US, India, and South America, Fnatic stands as one of the best esports organizations, whose players have achieved numerous tournament wins. Fnatic also won the ESPORTS Team of the Year Award in 2006 and 2009.
+          In Europe, the US, India, and South America, Fnatic stad 2009.
           
           The management around founders Sam and Anne Mathews resides in London, where Fnatic's main office is located.`}
           image="https://liquipedia.net/commons/images/thumb/9/96/Fnatic_2020_infoboximage.png/900px-Fnatic_2020_infoboximage.png"

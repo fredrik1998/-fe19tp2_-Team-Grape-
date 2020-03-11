@@ -65,7 +65,7 @@ export default function CenteredTabs() {
         <Grid item xs={12} sm={12}>
           <Title>
             <h2>Welcome Fnatic</h2>
-            <Avatar alt="flusha" img src={require('./fnatic.png')} className={classes.mega} />
+            <StyledGrid><Avatar alt="flusha" img src={require('./fnatic.png')} className={classes.mega}/></StyledGrid>
           </Title>
           <StyledGrid item xs={12} zeroMinWidth>
             <Avatar alt="flusha" img src={require('./flusha.jpg')} className={classes.large} />
