@@ -1,5 +1,57 @@
 import React, { Component } from 'react';
 import { withFirebase } from '../Firebase/context';
+
+import styled from 'styled-components';
+import Button from '@material-ui/core/Button';
+import { Input } from '@material-ui/core';
+
+const Form = styled.h5`
+size: 10em;
+display: flex;
+flex-direction: column;
+align-items: center;
+width: max;
+height: max;
+border: none;
+background: #252830;
+padding: 0 15px;
+font-size: 16px;
+outline: none;
+color: white;
+`;
+
+const Wrapper = styled.section`
+background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+border: 0,
+borderRadius: 3,
+boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+color: 'white',
+height: 48,
+padding: '0 30px',
+  
+`;
+
+const StyledInput = styled(Input)`
+  label="Filled";
+   variant="filled"; 
+   background-color:#26262b;
+  width: 100%;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 8px 0;
+  margin: 8px 0;
+  color: white;
+   `
+
+   const StyledButton = styled(Button)({
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      border: 0,
+      borderRadius: 3,
+      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+      color: 'white',
+      height: 48,
+      padding: '0 30px',
+    });
 const INITIAL_STATE = {
   passwordOne: '',
   passwordTwo: '',
@@ -30,26 +82,30 @@ class PasswordChangeForm extends Component {
     const isInvalid =
       passwordOne !== passwordTwo || passwordOne === '';
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
+      <Form onSubmit={this.onSubmit}>
+        <div>
+        <Wrapper>
+        <StyledInput
           name="passwordOne"
           value={passwordOne}
           onChange={this.onChange}
           type="password"
           placeholder="New Password"
         />
-        <input
+        <StyledInput
           name="passwordTwo"
           value={passwordTwo}
           onChange={this.onChange}
           type="password"
           placeholder="Confirm New Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <StyledButton disabled={isInvalid} type="submit">
           Reset My Password
-        </button>
+        </StyledButton>
         {error && <p>{error.message}</p>}
-      </form>
+        </Wrapper>
+        </div>
+      </Form>
     );
   }
 }

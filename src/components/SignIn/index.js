@@ -75,6 +75,7 @@ const StyledInput = styled(Input)`
   font-size: 20px;
   padding: 8px 0;
   margin: 8px 0;
+  color: white;
   
    `
   
