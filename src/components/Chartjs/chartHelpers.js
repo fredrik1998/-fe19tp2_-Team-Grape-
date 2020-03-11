@@ -9,7 +9,7 @@ export const makeLineGraph = (prizeData) => ({
       label: 'Prize Pools',
       fill: false,
       lineTension: 0.1,
-      backgroundColor: 'rgba(0, 196, 235)',
+      backgroundColor: 'rgba(248, 165, 27)',
       borderColor: 'rgba(0, 196, 235)',
       borderCapStyle: 'butt',
       borderDash: [],

@@ -17,7 +17,7 @@ import Avatar from '@material-ui/core/Avatar'
 const prizeData = findPrizePool();
 const data = makeLineGraph(prizeData);
 
-document.body.style.backgroundImage = 'url(https://wallpapercave.com/wp/wp1884600.jpg)';
+
 
 // export default class Home extends React.Component {
 const StyledGrid = styled(Grid)`
@@ -65,15 +65,11 @@ export default function CenteredTabs() {
 
 
     <div className={classes.root}>
-      <Grid container spacing={3}>
+      <Grid height="100%" container spacing={3}>
         <Grid item xs={12} sm={12}>
           <Title>
             <h2>Welcome Fnatic</h2>
-<<<<<<< Updated upstream
             <StyledGrid><Avatar alt="flusha" img src={require('./fnatic.png')} className={classes.mega}/></StyledGrid>
-=======
-            <StyledGrid><Avatar alt="flusha" img src={require('./fnatic.png')} className={classes.mega} /></StyledGrid>
->>>>>>> Stashed changes
           </Title>
           <StyledGrid item xs={12} zeroMinWidth>
             <Avatar alt="flusha" img src={require('./flusha.jpg')} className={classes.large} />

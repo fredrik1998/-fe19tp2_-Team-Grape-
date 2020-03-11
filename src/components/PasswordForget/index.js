@@ -13,10 +13,10 @@ const Title = styled.h1`
 `;
 
 const StyledButton = styled(Button)({
-  background: 'linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);',
+  background: 'linear-gradient(to right, #cfd9df, e2ebf0, #30dd8a, #2bb673);',
     border: 0,
     borderRadius: 3,
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    boxShadow: '0px 3px 3px 0 #000',
     color: 'white',
     height: 48,
     padding: '0 30px',

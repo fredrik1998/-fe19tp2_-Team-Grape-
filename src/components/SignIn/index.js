@@ -42,7 +42,6 @@ padding: '0 30px',
 `;
 
 const Form = styled.h5`
-  size: 10em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,7 +59,7 @@ const StyledButton = styled(Button)({
   background: 'linear-gradient(to right, #cfd9df, e2ebf0, #30dd8a, #2bb673);',
   border: 0,
   borderRadius: 3,
-  boxShadow: '0 4px 15px 0 rgba(23, 168, 108, 0.75);',
+  boxShadow: '0px 3px 3px 0 #000',
   color: 'white',
   height: 48,
   padding: '0 30px',

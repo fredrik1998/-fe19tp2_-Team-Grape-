@@ -112,7 +112,7 @@ export default function CenteredTabs() {
 
           In Europe, the US, India, and South America, Fnatic stad 2009.
           
-          The management around founders Sam and Anne Mathews resides in London, where Fnatic's main office is located.`}
+          Thed.`}
           image="https://liquipedia.net/commons/images/thumb/9/96/Fnatic_2020_infoboximage.png/900px-Fnatic_2020_infoboximage.png"
         />
         <CustomReviewCard
