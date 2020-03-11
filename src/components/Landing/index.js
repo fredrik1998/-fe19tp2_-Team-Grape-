@@ -26,6 +26,14 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Grid from '@material-ui/core/Grid';
 
+const StyledGrid = styled(Grid)({
+  background: `#252830`,
+  color: 'white',
+  display: 'flex',
+  flexDirection: 'row'
+});
+
+
 const useTabs = makeStyles(theme => ({
   root: {
     flexGrow: 1
@@ -76,7 +84,7 @@ export default function CenteredTabs() {
           {/* <Tab label="Login" className={classes.large} href={ROUTES.SIGN_IN} /> */}
         </StyledTabs>
       </Paper>
-      <Grid container direction="row" justify="center" alignItems="center">
+      <StyledGrid container direction="row" justify="center" alignItems="center">
         {teamCards.map((card, index) => <CustomReviewCard key={index} avatar={card.avatar} title={card.title} subTitle={card.subTitle} description={card.description} image={card.image} />)}
         
         <CustomReviewCard
@@ -115,7 +123,7 @@ export default function CenteredTabs() {
           description={`Natus Vincere Latin: "born to win", often abbreviated as NaVi is a leading multi-game esports organization from Ukraine. It is the first team in Counter-Strike history to win three major tournaments in one calendar year - IEM Season IV, ESWC 2010 and WCG 2010.`}
           image="https://liquipedia.net/commons/images/thumb/d/d6/Natus_Vincere.png/900px-Natus_Vincere.png"
         />
-      </Grid>
+      </StyledGrid>
     </React.Fragment>
   );
 }

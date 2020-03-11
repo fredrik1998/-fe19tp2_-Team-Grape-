@@ -9,19 +9,19 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button'
 
 const StyleTypography = styled(Typography)`
-  font-size: 2em;
+  font-size: 2vw;
   position: fixed;
-  left: 20%;
-  top: 5%;
+  left: 15%;
+  top: 7%;
   text-align: center;
   color: #FFF;
 `;
 
 const StyledTypography = styled(Typography)`
-font-size: 2em;
+font-size: 2vw;
   position: fixed;
   left: 60%;
-  top: 5%;
+  top: 7%;
   text-align: center;
   color: #FFF;
 `;
