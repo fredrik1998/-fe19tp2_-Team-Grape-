@@ -79,7 +79,7 @@ export default function CenteredTabs() {
           title="GamerLegion"
           subTitle="CS:GO TEAM"
           description={`Team GamerLegion is a German esports organization founded in 2017. They are mostly known for their League of Legends team, but they also field active rosters in Global Offensive and Rainbow Six.[1]`}
-          image="https://liquipedia.net/commons/images/thumb/a/a5/TeamGamerLegion.png/600px-TeamGamerLegion.png"
+          image src="GODSENT.png"
         />
         <CustomReviewCard
           key={2}
