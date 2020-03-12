@@ -66,3 +66,21 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+# EsportLive
+
+EsportLive is an amazing web application for Esport fans. You can see favourite teams stats, recent and upcomming matches and have acess to a Dashboard branded for your favourite Esport team. Currently we only have stats for CSGO but we plan to have stats for every single Esport game. We fetch our data from Abios Gaming API.
+
+## Prerequisites
+To fully use EsportLive you'll need an internet connection.
+
+## Built With
+React - The web framework used.
+Firebase - Used for authentication.
+Abios Gaming API - Used to fetch data about Esport.
+
+## Contributors
+Fredrik Andrén, Joel Adving, Nick Magnusson, Jens Bejerskog.
+
+## Acknowledgments
+- Special thanks to Abios Gaming for letting us use their API for our project.
