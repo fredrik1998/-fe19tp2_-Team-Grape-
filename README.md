@@ -75,9 +75,9 @@ EsportLive is an amazing web application for Esport fans. You can see favourite 
 To fully use EsportLive you'll need an internet connection.
 
 ## Built With
-React - The web framework used.
-Firebase - Used for authentication.
-Abios Gaming API - Used to fetch data about Esport.
+- React - The web framework used.
+- Firebase - Used for authentication.
+- Abios Gaming API - Used to fetch data about Esport.
 
 ## Contributors
 Fredrik Andrén, Joel Adving, Nick Magnusson, Jens Bejerskog.
