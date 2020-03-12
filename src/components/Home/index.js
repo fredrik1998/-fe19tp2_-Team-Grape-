@@ -1,43 +1,21 @@
 import React from 'react';
-import { withAuthorization } from '../Session';
-import * as ROUTES from '../../constants/routes';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { green } from '@material-ui/core/colors';
-import { Bar, Doughnut, Line } from 'react-chartjs-2';
-import { findPrizePool, tournaments } from '../Data/tournaments';
-import { makeBarGraph, makeDonutGraph, makeLineGraph } from '../Chartjs/chartHelpers';
-import { weaponLabels, weaponData } from '../Data/gunstats';
 import styled from 'styled-components';
 import Avatar from '@material-ui/core/Avatar'
 
-// import Grid from '@material-ui/core/Grid';
-const prizeData = findPrizePool();
-const data = makeLineGraph(prizeData);
 
-<<<<<<< Updated upstream
-
-=======
-// document.body.style.backgroundImage = 'url(https://wallpapercave.com/wp/wp1884600.jpg)';
->>>>>>> Stashed changes
-
-// export default class Home extends React.Component {
 const StyledGrid = styled(Grid)`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
  `
-
 const Title = styled.h2`
 text-align: center;
 color: #FFF;
 font-family: Arial, Helvetica, sans-serif;
 `
-
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -53,32 +31,17 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-
-const StyledTabs = styled(Tabs)({
-  background: `#252830`,
-  color: 'white',
-  display: 'flex',
-  alignItems: 'flex-start'
-
-});
-
 export default function CenteredTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
   return (
-
-
     <div className={classes.root}>
       <Grid height="100%" container spacing={3}>
         <Grid item xs={12} sm={12}>
           <Title>
             <h2>Welcome Fnatic</h2>
-<<<<<<< Updated upstream
-            <StyledGrid><Avatar alt="flusha" img src={require('./fnatic.png')} className={classes.mega}/></StyledGrid>
-=======
             <StyledGrid><Avatar alt="flusha" img src={require('./fnatic.png')} className={classes.mega} /></StyledGrid>
->>>>>>> Stashed changes
           </Title>
           <StyledGrid item xs={12} zeroMinWidth>
             <Avatar alt="flusha" img src={require('./flusha.jpg')} className={classes.large} />
@@ -90,7 +53,6 @@ export default function CenteredTabs() {
         </Grid>
       </Grid>
     </div >
-
   );
 }
 

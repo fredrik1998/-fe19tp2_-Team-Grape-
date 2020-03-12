@@ -1,9 +1,6 @@
 import React from 'react';
-import { PasswordForgetForm } from '../PasswordForget';
 import PasswordChangeForm from '../PasswordChange';
 import { AuthUserContext, withAuthorization } from '../Session';
-import color from '@material-ui/core/colors/amber';
-import { withTheme } from 'styled-components';
 import styled from 'styled-components';
 
 const Title = styled.h1`
@@ -39,7 +36,6 @@ const AccountPage = () => (
     {authUser => (
       <div>
         <Form><Wrapper><Title>Account: {authUser.email}</Title></Wrapper></Form>
-        {/* <Form><Wrapper><PasswordForgetForm /></Wrapper></Form> */}
         <PasswordChangeForm />
       </div>
     )}

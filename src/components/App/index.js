@@ -16,13 +16,7 @@ import Dashboard from '../Dashboard';
 import { withAuthentication } from '../Session';
 import Games from '../Games';
 
-
-
-
-
-
 const App = () => (
-
 
   <Router>
     <div>
@@ -40,11 +34,4 @@ const App = () => (
     </div>
   </Router>
 );
-
-
-
-
-
-
-
 export default withAuthentication(App);

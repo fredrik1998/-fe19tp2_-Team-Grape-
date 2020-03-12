@@ -1,6 +1,3 @@
-import styled from 'styled-components'
-
-
 
 export const weaponinfo = {
 
@@ -22,13 +19,6 @@ export const weaponinfo = {
         }
     }
 }
-
-/*
-const usersObject = snapshot.val();
-const usersList = Object.keys(usersObject).map(key => ({
-...usersObject[key],
-uid: key,
-}));*/
 
 export const weaponLabels = Object.keys(weaponinfo.data.weapon);
 export const weaponData = Object.values(weaponinfo.data.weapon);

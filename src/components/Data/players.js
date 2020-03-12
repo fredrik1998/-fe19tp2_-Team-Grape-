@@ -792,8 +792,6 @@ export const players = {
     ]
 };
 
-// export const findPlayer = (nickname) => players.data.find(player => player.nick_name === nickname);
-
 export const groupByCountry = () => players.data.id.reduce((acc, it) => {
     acc[it.data.id] = acc[it.data.id] + 1 || 1;
 
@@ -803,7 +801,3 @@ export const groupByCountry = () => players.data.id.reduce((acc, it) => {
 export const findPlayersByGameID = (gameID) => {
     return players.data.filter((player) => player.game.id === gameID)
 }
-
-
-
-// findPlayer('KR')

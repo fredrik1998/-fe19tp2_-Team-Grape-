@@ -154,33 +154,6 @@ export const stats = {
     "ended": true
 }
 
-
-/* 
-
-cl st
-
-
-Robin:
-
-const usersObject = snapshot.val();
-      const usersList = Object.keys(usersObject).map(key => ({
-        ...usersObject[key],
-        uid: key,
-}));
-
-*/
-
-//nameList = ['Frasse', 'Hasse', 'Lasse', 's1mpel', 'flusha'];
-/*
-{
-                "player": {
-                    "ign": "flusha"
-                },
-                "kills": 30,
-                "assists": 3,
-                "deaths": 18
-            },
-            */
 export const getPlayerKDA = () => {
     let arr = stats.home.player_stats.map((playerObject) => (
         {
@@ -195,47 +168,11 @@ export const getPlayerKDA = () => {
 }
 const playerKDAObject = Object.assign({}, ...getPlayerKDA());
 console.log(playerKDAObject)
-// export const makeBarGraph = () => {
-// const kdaObject 
-/* scanna igenom fakestats efter spelare, spara i en array av strängar. */
-// ['Frasse', 'Hasse', 'Lasse']
-
-//spelarArray.map(name => ({name: {k: 34, d: 23, a: 4}}))
 
 
-
-/* const player = stats.home.player_stats
-
-const kills = player.map(person => ({ value: person.kills }))
-const assists = player.map(person => ({ value: person.assists }))
-const deaths = player.map(person => ({ value: person.deaths }))
-
-console.log(kills)
-console.log(assists)
-console.log(deaths)
-
-const kda = Object.assign([kills, deaths, assists])
-
-console.log(kda)
-
-Object.keys(stats.home.player_stats)
-console.log(Object.keys(stats.home.player_stats))
- */
-
-// export const makeBarGraph = () => {
-// const oldObject = { Frasse: {k: 1, a: 5, d: 10}, 
-// Hasse: {k: 2, a: 4, d: 9}, 
-// Lasse: {k: 3, a: 3, d: 8},
-// s1mpel: {k: 4, a: 2, d: 7},
-// flusha: {k: 5, a: 1, d: 6}};
-
-const players = Object.keys(playerKDAObject) // ['Frasse', 'Hasse', 'Lasse']
+const players = Object.keys(playerKDAObject) 
 
 const kills = players.map(key => playerKDAObject[key].k);
 const deaths = players.map(key => playerKDAObject[key].d);
 const assists = players.map(key => playerKDAObject[key].a);
 export const playerKDA = { players, kills, deaths, assists }
-
-//console.log(deathList)
-
-// console.log(stats.home.player_stats)}

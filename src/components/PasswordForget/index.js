@@ -11,7 +11,6 @@ const Title = styled.h1`
   text-align: center;
   color: #FFF;
 `;
-
 const StyledButton = styled(Button)({
   background: 'linear-gradient(to right, #cfd9df, e2ebf0, #30dd8a, #2bb673);',
     border: 0,

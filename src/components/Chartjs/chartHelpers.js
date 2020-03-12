@@ -1,7 +1,5 @@
 import { playerKDA } from '../Data/fakestats'
 
-// const backgroundColor = 'rgba(0, 196, 235)';
-
 export const makeLineGraph = (prizeData) => ({
   labels: Object.keys(prizeData),
   datasets: [
@@ -9,13 +7,8 @@ export const makeLineGraph = (prizeData) => ({
       label: 'Prize Pools',
       fill: false,
       lineTension: 0.1,
-<<<<<<< Updated upstream
-      backgroundColor: 'rgba(248, 165, 27)',
-      borderColor: 'rgba(0, 196, 235)',
-=======
       backgroundColor: '#FF8C00',
       borderColor: '#FF8C00',
->>>>>>> Stashed changes
       borderCapStyle: 'butt',
       borderDash: [],
       borderDashOffset: 0.0,
@@ -34,88 +27,8 @@ export const makeLineGraph = (prizeData) => ({
   ]
 });
 
-/* 
-
-Robin:
-
-const usersObject = snapshot.val();
-      const usersList = Object.keys(usersObject).map(key => ({
-        ...usersObject[key],
-        uid: key,
-}));
-
-*/
-
-//nameList = ['Frasse', 'Hasse', 'Lasse', 's1mpel', 'flusha'];
-
-export const makeKDAObject = (fakestats) => {
-  /* scanna igenom fakestats efter spelare, spara i en array av strängar. */
-  // ['Frasse', 'Hasse', 'Lasse']
-
-  //spelarArray.map(name => ({name: {k: 34, d: 23, a: 4}}))
-
-}
-
-
-
 export const makeBarGraph = () => {
-  // console.log(playerKDA)
-  /*   const kdaObject = {
-      Frasse: { k: 1, a: 5, d: 10 },
-      Hasse: { k: 2, a: 4, d: 9 },
-      Lasse: { k: 3, a: 3, d: 8 },
-      s1mpel: { k: 4, a: 2, d: 7 },
-      flusha: { k: 5, a: 1, d: 6 }
-    };
-   */
-  /*
-{
-  "players": [
-    "flusha",
-    "KRIMZ",
-    "JW",
-    "Brollan",
-    "Golden"
-],
-  "kills": [
-    30,
-    20,
-    12,
-    31,
-    13
-  ],
-  "deaths": [
-    18,
-    25,
-    22,
-    15,
-    18
-  ],
-  "assists": [
-    3,
-    5,
-    6,
-    0,
-    3
-  ]
-}*/
-  /* 
-    const nameList = Object.keys(kdaObject) // ['Frasse', 'Hasse', 'Lasse']
   
-    const killList = Object.keys(kdaObject).map(key => kdaObject[key].k);
-    const deathList = Object.keys(kdaObject).map(key => kdaObject[key].d);
-    const assistList = Object.keys(kdaObject).map(key => kdaObject[key].a);
-     */
-  //console.log(deathList)
-  /*
-  X const o = {p: 42, q: true};
-  -> const {p, q} = o;
-  
-  console.log(p); // 42
-  console.log(q); // true */
-
-  //desutrcutra ut variabler med samma namn
-
   const { players, kills, deaths, assists } = playerKDA;
 
   return ({
@@ -132,7 +45,6 @@ export const makeBarGraph = () => {
           borderDashOffset: 0.0,
           borderJoinStyle: 'miter',
           pointBorderColor: 'rgba(	0, 255, 0)',
-          //stack: 1,
           hoverBackgroundColor: 'rgba(	0, 255, 0)',
           hoverBorderColor: 'rgba(	0, 255, 0)',
           data: kills
@@ -148,9 +60,7 @@ export const makeBarGraph = () => {
           borderDashOffset: 0.0,
           borderJoinStyle: 'miter',
           pointBorderColor: 'rgba(75,192,192,1)',
-
           borderWidth: 1,
-          //stack: 1,
           hoverBackgroundColor: 'rgba(75,192,192,0.4)',
           hoverBorderColor: 'rgba(75,192,192,0.4)',
           data: assists
@@ -166,7 +76,6 @@ export const makeBarGraph = () => {
           borderDashOffset: 0.0,
           borderJoinStyle: 'miter',
           pointBorderColor: 'rgba(	255, 0, 0)',
-          //stack: 1,
           hoverBackgroundColor: 'rgba(	255, 0, 0)',
           hoverBorderColor: 'rgba(	255, 0, 0)',
           data: deaths

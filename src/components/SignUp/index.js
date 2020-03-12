@@ -32,7 +32,6 @@ boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
 color: 'white',
 height: 48,
 padding: '0 30px',
-  
 `;
 
 const Form = styled.h5`
@@ -62,9 +61,6 @@ const StyledInput = styled(Input)`
   color: white;
    `
 
-
-
-
 const SignUpPage = () => (
   <Form>
     <div>
@@ -87,7 +83,6 @@ const INITIAL_STATE = {
   isAdmin: false,
   isBranded: false
 };
-
 
 class SignUpFormBase extends Component {
   constructor(props) {
@@ -214,9 +209,6 @@ const SignUpLink = () => (
   </p>
 );
 const SignUpForm = withRouter(withFirebase(SignUpFormBase));
-
-
-
 
 export default SignUpPage;
 export { SignUpForm, SignUpLink };

@@ -1,10 +1,7 @@
 import React from 'react';
-import * as ROUTES from '../../constants/routes';
-import { Link } from 'react-router-dom';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import { green } from '@material-ui/core/colors';
 import styled, { withTheme } from 'styled-components';
 import clsx from 'clsx';
@@ -18,12 +15,8 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { blueGrey } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
 import Grid from '@material-ui/core/Grid';
 
 const StyledGrid = styled(Grid)({
@@ -32,8 +25,6 @@ const StyledGrid = styled(Grid)({
   display: 'flex',
   flexDirection: 'row'
 });
-
-
 const useTabs = makeStyles(theme => ({
   root: {
     flexGrow: 1
@@ -53,13 +44,9 @@ const StyledTabs = styled(Tabs)({
   color: 'white',
 });
 
-
-// {avatar: 'G', },
 const teamCards = [{avatar: 'G', title: 'GODSENT', subTitle: 'CS:GO Team', description: ` Swedish esports organization formed by former Fnatic in-game leader Markus "pronax" Wallsten and entrepreneur Tomas Oropesa Martin. The organization ceased operation following the sale of its roster to Red Reserve and RFRSH's withdrawal from the team's operations.[1]
 `, image: "https://liquipedia.net/commons/images/thumb/a/a3/GODSENT.png/900px-GODSENT.png"}, 
 ];
-
-
 export default function CenteredTabs() {
   const classes = useTabs();
   const [value, setValue] = React.useState(0);
@@ -81,7 +68,6 @@ export default function CenteredTabs() {
             }
           }}
         >
-          {/* <Tab label="Login" className={classes.large} href={ROUTES.SIGN_IN} /> */}
         </StyledTabs>
       </Paper>
       <StyledGrid container direction="row" justify="center" alignItems="center">
@@ -138,11 +124,6 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 'auto',
     overflow: 'initial',
     background: '#ffffff'
-    /*     display: 'flex',
-    justifyContent: 'space-around',
-    flexDirection: 'row',
-    alignItems: 'auto', */
-    /*     padding: '30px' */
   },
   media: {
     width: '100%',
@@ -180,7 +161,6 @@ const StyledTypography = withStyles({
 })(Typography);
 
 export function CustomReviewCard({ avatar, title, description, image, subTitle }) {
-  // avatar: 'hej, title: 'hej
   console.log(title);
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -214,7 +194,6 @@ export function CustomReviewCard({ avatar, title, description, image, subTitle }
       />
       <CardContent>
         <StyledTypography
-          /*           variant="body2" */
           lineHeight={1.8}
           fontSize={12}
           component="p"
@@ -223,7 +202,6 @@ export function CustomReviewCard({ avatar, title, description, image, subTitle }
         </StyledTypography>
       </CardContent>
       <CardActions disableSpacing>
-       
        
         <IconButton style={{ color: blueGrey[500] }}
           className={clsx(classes.expand, {
@@ -235,8 +213,7 @@ export function CustomReviewCard({ avatar, title, description, image, subTitle }
         >
           <ExpandMoreIcon />
         </IconButton>
-        
-
+      
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
